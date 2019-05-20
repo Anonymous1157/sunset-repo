@@ -1,0 +1,26 @@
+From 7675d97be9ca51cc334a9e2849179ead7bb829e8 Mon Sep 17 00:00:00 2001
+From: Kazuki Tachibana <iwanderer.1214@air.ocn.ne.jp>
+Date: Thu, 21 Apr 2016 18:21:03 +0900
+Subject: [PATCH] support to make package about Debian and Redhat package
+ management system
+
+---
+ src/lsfirewire.in | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/src/lsfirewire.in b/src/lsfirewire.in
+index 5f33207..58daebd 100644
+--- a/src/lsfirewire.in
++++ b/src/lsfirewire.in
+@@ -107,7 +107,10 @@ show_device_config_rom() {
+ 			MY_DIR="$ORIGINAL_PWD/$MY_DIR"
+ 		fi
+ 
+-		CRPP="$MY_DIR/../libexec/linux-firewire-utils/crpp"
++        prefix="@prefix@"
++        exec_prefix="@exec_prefix@"
++        execdir="@libexecdir@/linux-firewire-utils"
++        CRPP="${execdir}/crpp"
+ 		if [ ! -x "$CRPP" ]; then
+ 			CRPP="$MY_DIR/crpp"
+ 			if [ ! -x "$CRPP" ]; then

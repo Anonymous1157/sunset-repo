@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Source: Written from scratch for sunset-repo overlay
+-->
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>sunsetsergal@gmail.com</email>
+	</maintainer>
+	<longdescription lang="en">
+	This package contains the tools needed to create, check, manipulate and analyze
+	gfs2 filesystems, along with important scripts required to support gfs2
+	clusters.
+	</longdescription>
+	<use>
+		<flag name="gcov">Build coverage support</flag>
+		<flag name="gprof">Build profiling support</flag>
+	</use>
+</pkgmetadata>
