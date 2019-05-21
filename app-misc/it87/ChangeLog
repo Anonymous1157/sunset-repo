@@ -1,0 +1,10 @@
+# ChangeLog for app-misc/it87
+# Copyright 1999-2019 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*it87-9999 (20 May 2019)
+
+  20 May 2019; Anonymous1157 <sunsetsergal@gmail.com> +it87-9999.ebuild,
+  +metadata.xml:
+  Initial commit, cleanup of an old 'local' repository
+

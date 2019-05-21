@@ -1,8 +1,8 @@
 # Copyright 2012 Mathieu Chouinard 
+# Copyright 2019 Sunset <sunsetsergal@gmail.com>
 # Distributed under the terms of the GNU General Public License v2
 
 # Source: =sys-fs/diskdev_cmds-332.14_p1 from default Gentoo overlay
-# Changes: cleanup, EAPI bump, version bump (filename)
 
 EAPI=7
 
@@ -13,9 +13,9 @@ HOMEPAGE="http://opendarwin.org"
 SRC_URI="http://cavan.codon.org.uk/~mjg59/${PN}/${PN}-${MY_PV}.tar.gz"
 LICENSE="APSL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
-DEPEND="dev-libs/openssl"
+DEPEND="dev-libs/openssl:0"
 RDEPEND="${DEPEND}"
 BDEPEND="sys-devel/clang"
 

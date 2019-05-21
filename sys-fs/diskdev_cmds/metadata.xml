@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-    Source: sys-fs/diskdev_cmds/metadata.xml from default Gentoo overlay
-    Changes: none
--->
+<!-- Source: sys-fs/diskdev_cmds/metadata.xml from default Gentoo overlay -->
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <maintainer type="project">

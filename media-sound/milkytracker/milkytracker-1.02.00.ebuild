@@ -1,8 +1,8 @@
 # Copyright 1999-2019 Gentoo Authors
+# Copyright 2019 Sunset <sunsetsergal@gmail.com>
 # Distributed under the terms of the GNU General Public License v2
 
 # Source: =media-sound/milkytracker-1.0.0 from default Gentoo overlay
-# Changes: remove patch, version bump (filename)
 
 EAPI=7
 

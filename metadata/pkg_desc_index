@@ -1,0 +1,8 @@
+app-misc/it87 9999: IT8705F/IT871xF/IT872xF hardware monitoring driver
+app-misc/linux-firewire-utils 0.4 0.4-r1 9999: Utilities to list and configure FireWire devices
+gnome-extra/gucharmap 12.0.1: Unicode character map viewer and library
+mate-base/mate 1.22: Meta ebuild for MATE, a traditional desktop environment
+media-sound/milkytracker 1.02.00: FastTracker 2 inspired music tracker
+sys-fs/diskdev_cmds 540.1-r1: HFS and HFS+ utils ported from OSX, supplies mkfs and fsck
+sys-fs/gfs2-utils 3.1.10 3.2.0 9999: Tools for creating, checking and working with gfs2 filesystems
+xfce-base/xfce4-meta 4.12-r2: The Xfce Desktop Environment (meta package)

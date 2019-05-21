@@ -1,8 +1,8 @@
 # Copyright 1999-2019 Gentoo Authors
+# Copyright 2019 Sunset <sunsetsergal@gmail.com>
 # Distributed under the terms of the GNU General Public License v2
 
 # Source: =mate-base/mate-1.22 from default Gentoo overlay
-# Changes: RDEPEND (avoid pulling in gnome-keyring)
 
 EAPI=6
 

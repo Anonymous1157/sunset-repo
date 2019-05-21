@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-    Source: Written from scratch for sunset-repo overlay
--->
+<!-- Source: Written from scratch for sunset-repo overlay -->
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
@@ -14,8 +12,8 @@
 		select the GTK+3 theme as well as the GTK+2 one.
 	</longdescription>
 	<use>
-        <flag name="themes">Install XFCE's GTK+2 theme</flag>
-        <flag name="gtk3">If USE=themes is also selected, install XFCE's GTK+3 theme</flag>
-        <flag name="gprof">Don't install extra fonts or icon themes</flag>
-    </use>
+		<flag name="themes">Install XFCE's GTK+2 theme</flag>
+		<flag name="gtk3">If USE=themes is also selected, install XFCE's GTK+3 theme</flag>
+		<flag name="minimal">Don't install extra fonts or icon themes</flag>
+	</use>
 </pkgmetadata>

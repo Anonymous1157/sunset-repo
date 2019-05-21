@@ -1,4 +1,4 @@
-# Copyright 2019 Gentoo Authors
+# Copyright 2019 Sunset <sunsetsergal@gmail.com>
 # Distributed under the terms of the GNU General Public License v2
 
 # Source: Written from scratch for sunset-repo overlay

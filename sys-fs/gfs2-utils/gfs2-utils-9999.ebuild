@@ -1,4 +1,4 @@
-# Copyright 2019 Gentoo Authors
+# Copyright 2019 Sunset <sunsetsergal@gmail.com>
 # Distributed under the terms of the GNU General Public License v2
 
 # Source: Written from scratch for sunset-repo overlay
@@ -15,7 +15,7 @@ if [[ "${PV%9999}" == "${PV}" ]] ; then
 	KEYWORDS="~amd64 ~x86"
 else
 	inherit git-r3
-    EGIT_REPO_URI="${HOMEPAGE}.git"
+	EGIT_REPO_URI="${HOMEPAGE}.git"
 fi
 
 RESTRICT="mirror"
@@ -24,7 +24,7 @@ SLOT="0"
 IUSE="nls debug gprof gcov test"
 
 RDEPEND="sys-libs/zlib
-sys-libs/ncurses
+sys-libs/ncurses:0
 sys-apps/util-linux"
 DEPEND="sys-kernel/linux-headers
 ${RDEPEND}"

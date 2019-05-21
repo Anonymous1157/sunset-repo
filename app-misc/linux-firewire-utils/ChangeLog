@@ -1,0 +1,14 @@
+# ChangeLog for app-misc/linux-firewire-utils
+# Copyright 1999-2019 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*linux-firewire-utils-9999 (20 May 2019)
+*linux-firewire-utils-0.4-r1 (20 May 2019)
+*linux-firewire-utils-0.4 (20 May 2019)
+
+  20 May 2019; Anonymous1157 <sunsetsergal@gmail.com>
+  +files/linux-firewire-utils-use-autotools-prefix.patch,
+  +linux-firewire-utils-0.4.ebuild, +linux-firewire-utils-0.4-r1.ebuild,
+  +linux-firewire-utils-9999.ebuild, +metadata.xml:
+  Initial commit, cleanup of an old 'local' repository
+
