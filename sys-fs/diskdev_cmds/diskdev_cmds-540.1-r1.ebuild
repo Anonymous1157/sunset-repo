@@ -15,7 +15,7 @@ LICENSE="APSL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
-DEPEND="dev-libs/openssl:0"
+DEPEND="dev-libs/openssl:="
 RDEPEND="${DEPEND}"
 BDEPEND="sys-devel/clang"
 

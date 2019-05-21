@@ -16,4 +16,4 @@ If you use layman:
 layman -o https://raw.github.com/Anonymous1157/sunset-repo/master/repositories.xml -f -a sunset-repo
 ```
 
-You're on your own if you want to add it manually or hav another repository management solution.
+You're on your own if you want to add it manually or have another repository management solution.

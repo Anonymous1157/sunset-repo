@@ -24,7 +24,7 @@ SLOT="0"
 IUSE="nls debug gprof gcov test"
 
 RDEPEND="sys-libs/zlib
-sys-libs/ncurses:0
+sys-libs/ncurses:=
 sys-apps/util-linux"
 DEPEND="sys-kernel/linux-headers
 ${RDEPEND}"
