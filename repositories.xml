@@ -9,6 +9,5 @@
       <email xmlns="">sunsetsergal@gmail.com</email>
     </owner>
     <source xmlns="" type="git">https://github.com/Anonymous1157/sunset-repo.git</source>
-    <feed xmlns="">https://github.com/Anonymous1157/sunset-repo/commits/master.atom</feed>
   </repo>
 </repositories>
