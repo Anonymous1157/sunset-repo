@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "http://www.gentoo.org/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo xmlns="" quality="experimental" status="unofficial">
+    <name xmlns=""><![CDATA[sunset-repo]]></name>
+    <description xmlns=""><![CDATA[Sunset's Gentoo overlay]]></description>
+    <homepage xmlns="">https://github.com/Anonymous1157/sunset-repo</homepage>
+    <owner xmlns="" type="person">
+      <email xmlns="">sunsetsergal@gmail.com</email>
+    </owner>
+    <source xmlns="" type="git">https://github.com/Anonymous1157/sunset-repo.git</source>
+    <feed xmlns="">https://github.com/Anonymous1157/sunset-repo/commits/master.atom</feed>
+  </repo>
+</repositories>
