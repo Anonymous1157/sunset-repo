@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Source: Written from scratch for sunset-repo overlay -->
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>sunsetsergal@gmail.com</email>
+	</maintainer>
+	<longdescription lang="en">
+	This package contains Facebook's internally-developed userspace out-of-memory
+	killer daemon. It uses Linux pressure stall information and control groups v2
+	to monitor a system and uses a plugin architecture to take action based on
+	conditions.
+	</longdescription>
+</pkgmetadata>

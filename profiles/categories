@@ -2,5 +2,7 @@ app-misc
 gnome-extra
 mate-base
 media-sound
+sys-apps
 sys-fs
+x11-themes
 xfce-base
