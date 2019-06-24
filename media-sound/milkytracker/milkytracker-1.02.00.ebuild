@@ -26,12 +26,15 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/MilkyTracker-${PV}"
+SS="${WORKDIR}/${P}_build"
 
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_DOCDIR=share/doc/${PF}
 		$(cmake-utils_use_find_package alsa ALSA)
 		$(cmake-utils_use_find_package jack JACK)
+		-DSDL2MAIN_LIBRARY="" # Redundant but makes build fail if not defined
+		-DBUILD_SHARED_LIBS=OFF # Parts of code built as *.a libraries not intended to be built as *.so and installed
 	)
 	cmake-utils_src_configure
 }
