@@ -24,5 +24,8 @@
 			packages.</flag>
 		<flag name="help">Install <pkg>gnome-extra/yelp</pkg> to handle in application
 			help menus and documentation browsing</flag>
+		<flag name="gnome">Install <pkg>sys-apps/gnome-disk-utility</pkg> and other
+			packages that may pull in lots of Gnome-specific dependencies. Doesn't add
+			any dependencies by default unless "extras" or "help" flags are enabled.</flag>
 	</use>
 </pkgmetadata>

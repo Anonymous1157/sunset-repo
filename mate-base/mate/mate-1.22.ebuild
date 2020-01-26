@@ -23,7 +23,8 @@ HOMEPAGE="https://mate-desktop.org"
 LICENSE="metapackage"
 
 SLOT="0"
-IUSE="+base -bluetooth help +notification +themes +extras"
+IUSE="+base -bluetooth help +notification +themes +extras gnome"
+REQUIRED_USE="help? ( gnome )"
 
 S="${WORKDIR}"
 
@@ -61,9 +62,14 @@ RDEPEND="
 		=mate-extra/mate-utils-${MATE_BRANCH}*
 		=media-gfx/eom-${MATE_BRANCH}*
 	)
-	help? (
-		gnome-extra/yelp
-		=mate-extra/mate-user-guide-${MATE_BRANCH}*
+	gnome? (
+		extras? (
+			sys-apps/gnome-disk-utility
+		)
+		help? (
+			gnome-extra/yelp
+			=mate-extra/mate-user-guide-${MATE_BRANCH}*
+		)
 	)
 "
 
