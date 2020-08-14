@@ -11,11 +11,11 @@ DESCRIPTION="GZDoom's music system as a standalone library"
 HOMEPAGE="https://github.com/coelckers/ZMusic"
 
 if [[ "${PV%9999}" == "${PV}" ]] ; then
-    SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm ~x86"
 else
-    inherit git-r3
-    EGIT_REPO_URI="${HOMEPAGE}.git"
+	inherit git-r3
+	EGIT_REPO_URI="${HOMEPAGE}.git"
 fi
 
 LICENSE="BSD DUMB-0.9.3 GPL-3 LGPL-3 LGPL-2.1 ZLIB"

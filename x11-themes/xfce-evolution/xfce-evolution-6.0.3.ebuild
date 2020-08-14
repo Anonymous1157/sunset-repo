@@ -14,8 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RESTRICT="mirror"
-RDEPEND="x11-themes/gtk-engines-murrine
-x11-themes/qtstyleplugins"
+RDEPEND="x11-themes/gtk-engines-murrine"
 
 src_unpack() {
 	mkdir -p "${S}"
@@ -46,9 +45,5 @@ src_install() {
 }
 
 pkg_postinst() {
-	einfo
-	elog "Please remember to add 'export QT_QPA_PLATFORMTHEME=gtk2' to your"
-	elog ".bashrc or other suitable graphical session configuration file!"
-	elog "(This is required to theme Qt5 applications.)"
-	einfo
+	elog "Qt5 is supported via gtk2 plugin from dev-qt/qtstyleplugins"
 }

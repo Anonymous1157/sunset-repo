@@ -1,5 +1,4 @@
-# Copyright 2012 Mathieu Chouinard 
-# Copyright 2019 Sunset <sunsetsergal@gmail.com>
+# Copyright 2012 Mathieu Chouinard, 2019 Sunset <sunsetsergal@gmail.com>
 # Distributed under the terms of the GNU General Public License v2
 
 # Source: =sys-fs/diskdev_cmds-332.14_p1 from default Gentoo overlay
