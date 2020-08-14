@@ -18,14 +18,8 @@ if [[ "${PV%9999}" == "${PV}" ]] ; then
 fi
 
 MODULE_NAMES="aura-gpu(extra:${S})"
-BUILD_TARGETS="clean all"
 
-#src_install() {
-#	linux-mod_src_install
-#
-#	dodoc README ISSUES
-#
-#	# Tell kmod to prefer this module over the kernel tree one
-#	mkdir -p "${ED}/lib/depmod.d" || die
-#	echo "override ${PN} ${KV_FULL} hwmon" > "${ED}/lib/depmod.d/${PN}.conf" || die
-#}
+src_prepare() {
+	eapply "${FILESDIR}/${PN}-new-makefile.patch"
+	default
+}
