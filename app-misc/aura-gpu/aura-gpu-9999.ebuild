@@ -1,4 +1,4 @@
-# Copyright 2020 Sunset <sunsetsergal@gmail.com>
+# Copyright 2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # Source: Written from scratch for sunset-repo overlay
@@ -29,4 +29,3 @@ pkg_setup() {
 	# linux-mod_pkg_setup -> linux-info_pkg_setup -> linux-info_get_any_version -> get_version -> KV_OUT_DIR
 	BUILD_PARAMS="KERNELDIR=${KV_OUT_DIR}"
 }
-
