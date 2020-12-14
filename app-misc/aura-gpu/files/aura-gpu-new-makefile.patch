@@ -7,7 +7,7 @@ intended to split out the GPU mod from the larger package "lights" for easier
 testing but work has continued in that other package.
 
 diff --git a/Makefile b/Makefile
-index dd66372..463143a 100644
+index dd66372..dda9329 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -1,27 +1,11 @@
@@ -25,17 +25,19 @@ index dd66372..463143a 100644
 -	aura-gpu-bios.c \
 -	aura-gpu-hw.c \
 -	main.c
-+ifeq ($(KERNELRELEASE),)
- 
- KERNELDIR = /lib/modules/$(shell uname -r)/build
- PWD = $(shell pwd)
+-
+-KERNELDIR = /lib/modules/$(shell uname -r)/build
+-PWD = $(shell pwd)
 -KBUILD_EXTRA_SYMBOLS := $(ADAPTERDIR)/Module.symvers
 -OBJS = $(SRCS:.c=.o)
 -
--ifeq ($(KERNELRELEASE),)
+ ifeq ($(KERNELRELEASE),)
  
 -all:
 -	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules EXTRA_CFLAGS="-g -DDEBUG -I$(PWD)/../"
++KERNELDIR ?= /lib/modules/$(shell uname -r)/build
++PWD = $(shell pwd)
++
 +all: module
  
  clean:

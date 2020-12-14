@@ -23,10 +23,20 @@ ERROR_SENSORS_IT87+="(You don't have to disable it entirely since we package a d
 MODULE_NAMES="it87(hwmon:${S})"
 BUILD_TARGETS="clean modules"
 
+DOCS=(
+	"${S}/README"
+	"${S}/ISSUES"
+)
+
+pkg_setup() {
+	linux-mod_pkg_setup
+	# linux-mod_pkg_setup -> linux-info_pkg_setup -> linux-info_get_any_version -> get_version -> KV_FULL
+	BUILD_PARAMS="TARGET=${KV_FULL}"
+}
+
 src_install() {
 	linux-mod_src_install
-
-	dodoc README ISSUES
+	einstalldocs
 
 	# Tell kmod to prefer this module over the kernel tree one
 	mkdir -p "${ED}/lib/depmod.d" || die

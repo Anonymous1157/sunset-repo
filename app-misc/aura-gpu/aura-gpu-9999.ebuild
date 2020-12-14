@@ -19,7 +19,14 @@ fi
 
 MODULE_NAMES="aura-gpu(extra:${S})"
 
-src_prepare() {
-	eapply "${FILESDIR}/${PN}-new-makefile.patch"
-	default
+PATCHES=(
+	"${FILESDIR}/${PN}-new-makefile.patch"
+	"${FILESDIR}/${PN}-add-supported-cards.patch"
+)
+
+pkg_setup() {
+	linux-mod_pkg_setup
+	# linux-mod_pkg_setup -> linux-info_pkg_setup -> linux-info_get_any_version -> get_version -> KV_OUT_DIR
+	BUILD_PARAMS="KERNELDIR=${KV_OUT_DIR}"
 }
+
