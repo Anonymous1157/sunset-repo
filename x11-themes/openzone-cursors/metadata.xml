@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Source: Written from scratch for sunset-repo overlay -->
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>sunsetsergal@gmail.com</email>
+	</maintainer>
+	<longdescription lang="en">
+	This is the OpenZone cursor theme for X11.
+	</longdescription>
+</pkgmetadata>
