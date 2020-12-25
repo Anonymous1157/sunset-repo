@@ -18,6 +18,12 @@ RESTRICT="mirror"
 MY_DIR="Gnome-Xpro"
 S="${WORKDIR}/${MY_DIR}"
 
+src_prepare() {
+	default
+	# Fix MATE tray icon hardcoded size
+	sed -e '/NaTrayApplet-icon-size: 16px/d' -i ${S}"/gtk-3.0/gtk.css"
+}
+
 src_install() {
 	insinto /usr/share/themes
 	doins -r "${S}"
