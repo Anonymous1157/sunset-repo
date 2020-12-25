@@ -1,0 +1,46 @@
+# Copyright 2019 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# Source: Written from scratch for sunset-repo overlay
+
+EAPI=7
+
+DESCRIPTION="Gtk2, Gtk3, Gnome Shell, Cinnamon & Metacity themes base on Arc-Theme"
+HOMEPAGE="https://github.com/i-mint/Cloudy"
+
+MY_PN="Cloudy"
+
+if [[ "${PV%9999}" == "${PV}" ]] ; then
+	EGIT_COMMIT="6271ae144fbe597c959b914e82a14f85f2171e64"
+	SRC_URI="${HOMEPAGE}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+	S="${WORKDIR}/${MY_PN}-${EGIT_COMMIT}"
+else
+	EGIT_REPO_URI="${HOMEPAGE}.git"
+	inherit git-r3
+fi
+
+LICENSE="GPL-3"
+SLOT="0"
+
+RDEPEND="x11-themes/gtk-engines-adwaita
+x11-themes/gtk-engines-murrine"
+
+RESTRICT="mirror"
+
+src_prepare() {
+	default
+	for i in "${S}"/*/gtk-3.0/gtk.css
+	do
+		# Fix MATE tray icon hardcoded size
+		sed -e 's/-NaTrayApplet-icon-size: 16px;//g' -i "$i"
+	done
+}
+
+src_install() {
+	insinto /usr/share/themes
+	for i in "${S}"/*/gtk-3.0
+	do
+		doins -r "${i%/gtk-3.0}"
+	done
+}
