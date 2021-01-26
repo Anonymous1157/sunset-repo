@@ -10,10 +10,8 @@ HOMEPAGE="https://github.com/i-mint/Cloudy"
 
 MY_PN="Cloudy"
 
-EGIT_COMMIT="6271ae144fbe597c959b914e82a14f85f2171e64"
-SRC_URI="${HOMEPAGE}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64 ~x86"
-S="${WORKDIR}/${MY_PN}-${EGIT_COMMIT}"
+EGIT_REPO_URI="${HOMEPAGE}.git"
+inherit git-r3
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -22,15 +20,6 @@ RDEPEND="x11-themes/gtk-engines-adwaita
 x11-themes/gtk-engines-murrine"
 
 RESTRICT="mirror"
-
-src_prepare() {
-	default
-	for i in "${S}"/*/gtk-3.0/gtk.css
-	do
-		# Fix MATE tray icon hardcoded size
-		sed -e 's/-NaTrayApplet-icon-size: 16px;//g' -i "$i"
-	done
-}
 
 src_install() {
 	insinto /usr/share/themes
