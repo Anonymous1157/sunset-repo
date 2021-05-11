@@ -1,0 +1,104 @@
+diff --git a/Cloudy-Dark-Blue/gtk-3.0/gtk.css b/Cloudy-Dark-Blue/gtk-3.0/gtk.css
+index 476d59c..0c9d8fd 100644
+--- a/Cloudy-Dark-Blue/gtk-3.0/gtk.css
++++ b/Cloudy-Dark-Blue/gtk-3.0/gtk.css
+@@ -4408,7 +4408,7 @@ filechooser headerbar widget stack box.path-bar-box,
+     .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop {
+       background-color: transparent;
+       border-color: transparent;
+-      opacify: 0.7; }
++      opacity: 0.7; }
+       filechooser headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop label, filechooser headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop,
+       .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop label,
+       .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop {
+diff --git a/Cloudy-Dark-Grey/gtk-3.0/gtk.css b/Cloudy-Dark-Grey/gtk-3.0/gtk.css
+index 9d6f5cb..06bfe38 100644
+--- a/Cloudy-Dark-Grey/gtk-3.0/gtk.css
++++ b/Cloudy-Dark-Grey/gtk-3.0/gtk.css
+@@ -4475,7 +4475,7 @@ filechooser headerbar widget stack box.path-bar-box,
+     .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop {
+       background-color: transparent;
+       border-color: transparent;
+-      opacify: 0.7; }
++      opacity: 0.7; }
+       filechooser headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop label, filechooser headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop,
+       .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop label,
+       .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop {
+diff --git a/Cloudy-Light-Blue/gtk-3.0/gtk.css b/Cloudy-Light-Blue/gtk-3.0/gtk.css
+index ac18627..0b0513e 100644
+--- a/Cloudy-Light-Blue/gtk-3.0/gtk.css
++++ b/Cloudy-Light-Blue/gtk-3.0/gtk.css
+@@ -4413,7 +4413,7 @@ filechooser headerbar widget stack box.path-bar-box,
+     .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop {
+       background-color: transparent;
+       border-color: transparent;
+-      opacify: 0.7; }
++      opacity: 0.7; }
+       filechooser headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop label, filechooser headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop,
+       .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop label,
+       .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop {
+diff --git a/Cloudy-Light-Grey/gtk-3.0/gtk.css b/Cloudy-Light-Grey/gtk-3.0/gtk.css
+index f80b09d..feaa352 100644
+--- a/Cloudy-Light-Grey/gtk-3.0/gtk.css
++++ b/Cloudy-Light-Grey/gtk-3.0/gtk.css
+@@ -4480,7 +4480,7 @@ filechooser headerbar widget stack box.path-bar-box,
+     .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop {
+       background-color: transparent;
+       border-color: transparent;
+-      opacify: 0.7; }
++      opacity: 0.7; }
+       filechooser headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop label, filechooser headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop,
+       .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop label,
+       .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop {
+diff --git a/Cloudy-SoftBlue-Dark/gtk-3.0/gtk.css b/Cloudy-SoftBlue-Dark/gtk-3.0/gtk.css
+index e6dab82..b11fc77 100644
+--- a/Cloudy-SoftBlue-Dark/gtk-3.0/gtk.css
++++ b/Cloudy-SoftBlue-Dark/gtk-3.0/gtk.css
+@@ -4490,7 +4490,7 @@ filechooser headerbar widget stack box.path-bar-box,
+     .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop {
+       background-color: transparent;
+       border-color: transparent;
+-      opacify: 0.7; }
++      opacity: 0.7; }
+       filechooser headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop label, filechooser headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop,
+       .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop label,
+       .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop {
+diff --git a/Cloudy-SoftBlue-Light/gtk-3.0/gtk.css b/Cloudy-SoftBlue-Light/gtk-3.0/gtk.css
+index dab4dd3..fb303b0 100644
+--- a/Cloudy-SoftBlue-Light/gtk-3.0/gtk.css
++++ b/Cloudy-SoftBlue-Light/gtk-3.0/gtk.css
+@@ -4495,7 +4495,7 @@ filechooser headerbar widget stack box.path-bar-box,
+     .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop {
+       background-color: transparent;
+       border-color: transparent;
+-      opacify: 0.7; }
++      opacity: 0.7; }
+       filechooser headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop label, filechooser headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop,
+       .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop label,
+       .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop {
+diff --git a/Cloudy-SoftGrey-Dark/gtk-3.0/gtk.css b/Cloudy-SoftGrey-Dark/gtk-3.0/gtk.css
+index fbfb742..3a9cab9 100644
+--- a/Cloudy-SoftGrey-Dark/gtk-3.0/gtk.css
++++ b/Cloudy-SoftGrey-Dark/gtk-3.0/gtk.css
+@@ -4490,7 +4490,7 @@ filechooser headerbar widget stack box.path-bar-box,
+     .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop {
+       background-color: transparent;
+       border-color: transparent;
+-      opacify: 0.7; }
++      opacity: 0.7; }
+       filechooser headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop label, filechooser headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop,
+       .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop label,
+       .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop {
+diff --git a/Cloudy-SoftGrey-Light/gtk-3.0/gtk.css b/Cloudy-SoftGrey-Light/gtk-3.0/gtk.css
+index 7c971f8..c802d9d 100644
+--- a/Cloudy-SoftGrey-Light/gtk-3.0/gtk.css
++++ b/Cloudy-SoftGrey-Light/gtk-3.0/gtk.css
+@@ -4495,7 +4495,7 @@ filechooser headerbar widget stack box.path-bar-box,
+     .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop {
+       background-color: transparent;
+       border-color: transparent;
+-      opacify: 0.7; }
++      opacity: 0.7; }
+       filechooser headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop label, filechooser headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop,
+       .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop label,
+       .nautilus-window headerbar widget stack box.path-bar-box .nautilus-path-bar button:backdrop {
