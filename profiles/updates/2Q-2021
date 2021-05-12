@@ -1,0 +1,2 @@
+move app-misc/it87 sys-kernel/it87
+move app-misc/aura-gpu sys-kernel/aura-gpu
