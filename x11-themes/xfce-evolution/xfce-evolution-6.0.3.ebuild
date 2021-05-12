@@ -14,6 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RESTRICT="mirror"
+BDEPEND="app-arch/unzip"
 RDEPEND="x11-themes/gtk-engines-murrine"
 
 src_unpack() {
