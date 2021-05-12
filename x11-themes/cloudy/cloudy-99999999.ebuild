@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/i-mint/Cloudy"
 
 MY_PN="Cloudy"
 
-EGIT_REPO_URI="${HOMEPAGE}.git"
+EGIT_REPO_URI="https://github.com/i-mint/Cloudy.git"
 inherit git-r3
 
 LICENSE="GPL-3"

@@ -1,0 +1,12 @@
+BDEPEND=sys-devel/clang
+DEFINED_PHASES=install
+DEPEND=dev-libs/openssl:=
+DESCRIPTION=HFS and HFS+ utils ported from OSX, supplies mkfs and fsck
+EAPI=7
+HOMEPAGE=http://opendarwin.org
+KEYWORDS=~amd64 ~x86
+LICENSE=APSL-2
+RDEPEND=dev-libs/openssl:=
+SLOT=0
+SRC_URI=http://cavan.codon.org.uk/~mjg59/diskdev_cmds/diskdev_cmds-540.1.linux3.tar.gz
+_md5_=9894640441472a2103b0c2b47e735f32

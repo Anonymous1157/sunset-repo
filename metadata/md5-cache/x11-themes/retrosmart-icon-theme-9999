@@ -1,0 +1,12 @@
+BDEPEND=virtual/imagemagick-tools[png] >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=configure prepare unpack
+DESCRIPTION=An icon theme mainly based in the Haiku OS look
+EAPI=7
+HOMEPAGE=https://github.com/mdomlop/retrosmart-icon-theme
+INHERIT=git-r3
+LICENSE=GPL-3 MIT
+PROPERTIES=live
+RESTRICT=mirror
+SLOT=0
+_eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52
+_md5_=f82d31a6b363feaac28c3254d3da0d8e

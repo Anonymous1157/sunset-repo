@@ -1,0 +1,12 @@
+BDEPEND=media-gfx/icon-slicer >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=prepare unpack
+DESCRIPTION=OpenZone mouse cursor theme for X11 and Wayland
+EAPI=7
+HOMEPAGE=https://github.com/ducakar/openzone-cursors
+INHERIT=git-r3
+LICENSE=BSD
+PROPERTIES=live
+RESTRICT=mirror
+SLOT=0
+_eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52
+_md5_=d425c3705e8c0d498e4df3d3af4227ab

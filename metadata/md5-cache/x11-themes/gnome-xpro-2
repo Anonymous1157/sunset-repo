@@ -1,0 +1,11 @@
+DEFINED_PHASES=install prepare
+DESCRIPTION=Light Mac-like theme for GTK+2/3, Metacity, xfwm based off Arc-Theme
+EAPI=7
+HOMEPAGE=https://www.deviantart.com/etlesteam/art/Gnome-Xpro-686002343
+KEYWORDS=~amd64 ~x86
+LICENSE=all-rights-reserved
+RDEPEND=x11-themes/gtk-engines-adwaita x11-themes/gtk-engines-murrine
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://dl.opendesktop.org/api/files/download/id/1518377113/s/b2564b3c59b6216b85f5251b02ed531f55f170f0ca3f6b1be85da25ef2471e49a20173aa084860df29fd842cd12d1d03e642768d5bf5c0af9a491050eda7671f/t/1559340727/lt/download/Gnome-Xpro.tar.xz -> gnome-xpro-2.tar.xz
+_md5_=cb2cd6b02ab9ea49a29ab48066aeed99

@@ -1,0 +1,13 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install unpack
+DESCRIPTION=Gtk2, Gtk3, Gnome Shell, Cinnamon & Metacity themes base on Arc-Theme
+EAPI=7
+HOMEPAGE=https://github.com/i-mint/Cloudy
+INHERIT=git-r3
+LICENSE=GPL-3
+PROPERTIES=live
+RDEPEND=x11-themes/gtk-engines-adwaita x11-themes/gtk-engines-murrine
+RESTRICT=mirror
+SLOT=0
+_eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52
+_md5_=22312e92a1c487ce88eb33fdfabf986b

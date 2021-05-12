@@ -11,7 +11,7 @@ DESCRIPTION="Utilities to list and configure FireWire devices"
 HOMEPAGE="https://github.com/cladisch/linux-firewire-utils"
 
 if [[ "${PV%9999}" == "${PV}" ]] ; then
-	SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/cladisch/linux-firewire-utils/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 else
 	inherit git-r3

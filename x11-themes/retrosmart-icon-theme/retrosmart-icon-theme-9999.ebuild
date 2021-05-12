@@ -9,7 +9,7 @@ DESCRIPTION="An icon theme mainly based in the Haiku OS look"
 HOMEPAGE="https://github.com/mdomlop/retrosmart-icon-theme"
 
 if [[ "${PV%9999}" == "${PV}" ]] ; then
-	SRC_URI="${HOMEPAGE}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/mdomlop/retrosmart-icon-theme/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 else
 	inherit git-r3

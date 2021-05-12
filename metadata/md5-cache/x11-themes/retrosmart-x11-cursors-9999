@@ -1,0 +1,12 @@
+BDEPEND=virtual/imagemagick-tools[png] x11-apps/xcursorgen >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=prepare unpack
+DESCRIPTION=An old-fashioned look X11 cursor theme
+EAPI=7
+HOMEPAGE=https://github.com/mdomlop/retrosmart-x11-cursors
+INHERIT=git-r3
+LICENSE=GPL-3
+PROPERTIES=live
+RESTRICT=mirror
+SLOT=0
+_eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52
+_md5_=73b6e68dab726c6f2b39e373f2d601a6

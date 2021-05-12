@@ -9,7 +9,7 @@ DESCRIPTION="An old-fashioned look X11 cursor theme"
 HOMEPAGE="https://github.com/mdomlop/retrosmart-x11-cursors"
 
 if [[ "${PV%9999}" == "${PV}" ]] ; then
-	SRC_URI="${HOMEPAGE}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/mdomlop/retrosmart-x11-cursors/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 else
 	inherit git-r3
