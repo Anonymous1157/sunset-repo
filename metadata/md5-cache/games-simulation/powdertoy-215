@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig >=dev-util/meson-0.54.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=|| ( dev-lang/luajit dev-lang/lua:5.2 dev-lang/lua:5.1 ) dev-libs/openssl media-libs/libsdl2 net-misc/curl sci-libs/fftw:= sys-libs/zlib
+DESCRIPTION=Physics sandbox game
+EAPI=7
+HOMEPAGE=https://powdertoy.co.uk/
+INHERIT=meson desktop
+IUSE=+lto cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-3
+RDEPEND=|| ( dev-lang/luajit dev-lang/lua:5.2 dev-lang/lua:5.1 ) dev-libs/openssl media-libs/libsdl2 net-misc/curl sci-libs/fftw:= sys-libs/zlib
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/The-Powder-Toy/The-Powder-Toy/archive/refs/tags/snapshot-215.tar.gz -> powdertoy-215.tar.gz
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	20c4a380a6193a089c8c432f3e5f8402	meson	00d6fba6e500964c50ba74d1d1fc2e6c	desktop	c0d27bf73aa08ca05b663dbd31fbef28
+_md5_=5ddb638214754ca4164e7209ae36d23b
