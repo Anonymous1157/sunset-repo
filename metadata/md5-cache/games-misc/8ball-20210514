@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=Magic 8-ball toy
+EAPI=7
+HOMEPAGE=https://github.com/Anonymous1157/8ball
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/Anonymous1157/8ball/archive/c65519d441d97de08d04945ad97a0cff15f0d017.tar.gz -> 8ball-20210514.tar.gz
+_md5_=9edc6c5dbe35d0ae700f2471b6bae8bb
