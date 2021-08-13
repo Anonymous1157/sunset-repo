@@ -26,7 +26,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-use-autotools-prefix.patch"
 )
 
-DEPEND="sys-kernel/linux-headers"
+BDEPEND="sys-kernel/linux-headers"
 
 src_prepare() {
 	default
