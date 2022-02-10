@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 RESTRICT="mirror"
 
-DEPEND="|| ( dev-lang/luajit dev-lang/lua:5.2 dev-lang/lua:5.1 )
+DEPEND="|| ( dev-lang/luajit dev-lang/lua:5.1 )
 dev-libs/openssl
 media-libs/libsdl2
 net-misc/curl
