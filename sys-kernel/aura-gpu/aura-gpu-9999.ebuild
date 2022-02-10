@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # Source: Written from scratch for sunset-repo overlay
@@ -22,6 +22,7 @@ MODULE_NAMES="aura-gpu(extra:${S})"
 PATCHES=(
 	"${FILESDIR}/${PN}-new-makefile.patch"
 	"${FILESDIR}/${PN}-add-supported-cards.patch"
+	"${FILESDIR}/${PN}-add-driver-info.patch"
 )
 
 pkg_setup() {
