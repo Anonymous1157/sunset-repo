@@ -8,5 +8,5 @@ LICENSE=GPL-3
 PROPERTIES=live
 RESTRICT=mirror
 SLOT=0
-_eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52
+_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
 _md5_=73b6e68dab726c6f2b39e373f2d601a6

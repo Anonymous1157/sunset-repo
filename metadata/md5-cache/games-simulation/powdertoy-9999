@@ -1,6 +1,6 @@
-BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl] >=dev-util/meson-0.54.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl] >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install test unpack
-DEPEND=|| ( dev-lang/luajit dev-lang/lua:5.2 dev-lang/lua:5.1 ) dev-libs/openssl media-libs/libsdl2 net-misc/curl sci-libs/fftw:= sys-libs/zlib
+DEPEND=|| ( dev-lang/luajit dev-lang/lua:5.1 ) dev-libs/openssl media-libs/libsdl2 net-misc/curl sci-libs/fftw:= sys-libs/zlib
 DESCRIPTION=Physics sandbox game
 EAPI=7
 HOMEPAGE=https://powdertoy.co.uk/
@@ -8,8 +8,8 @@ INHERIT=git-r3 meson desktop
 IUSE=+lto cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3
 LICENSE=GPL-3
 PROPERTIES=live
-RDEPEND=|| ( dev-lang/luajit dev-lang/lua:5.2 dev-lang/lua:5.1 ) dev-libs/openssl media-libs/libsdl2 net-misc/curl sci-libs/fftw:= sys-libs/zlib
+RDEPEND=|| ( dev-lang/luajit dev-lang/lua:5.1 ) dev-libs/openssl media-libs/libsdl2 net-misc/curl sci-libs/fftw:= sys-libs/zlib
 RESTRICT=mirror
 SLOT=0
-_eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	20c4a380a6193a089c8c432f3e5f8402	meson	00d6fba6e500964c50ba74d1d1fc2e6c	desktop	c0d27bf73aa08ca05b663dbd31fbef28
-_md5_=c85e7dd29ee66391f87506b3da818280
+_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	meson	8f48ffde53174aba67239f0da61ac9d3	desktop	c0d27bf73aa08ca05b663dbd31fbef28
+_md5_=b3b6ccca080dbd50a751b9123a2dbf25
