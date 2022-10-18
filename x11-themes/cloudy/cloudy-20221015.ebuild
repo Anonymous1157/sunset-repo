@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/i-mint/Cloudy"
 
 MY_PN="Cloudy"
 
-EGIT_COMMIT="b9b8485f7ac065dc6499d145762cd8cef57dc647"
+EGIT_COMMIT="60161e98f0f36ad57c2388e5a063939993284765"
 SRC_URI="https://github.com/i-mint/Cloudy/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64 ~x86"
 S="${WORKDIR}/${MY_PN}-${EGIT_COMMIT}"
@@ -22,10 +22,6 @@ RDEPEND="x11-themes/gtk-engines-adwaita
 x11-themes/gtk-engines-murrine"
 
 RESTRICT="mirror"
-
-PATCHES=(
-"${FILESDIR}/fix-typo.patch"
-)
 
 src_install() {
 	insinto /usr/share/themes
