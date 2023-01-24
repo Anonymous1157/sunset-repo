@@ -24,9 +24,18 @@ SLOT="0"
 
 PATCHES=(
 	"${FILESDIR}/1001-use-autotools-prefix.patch"
+	"${FILESDIR}/2001-fix-build-instructions.patch"
+	"${FILESDIR}/2002-update-oui-url.patch"
+	"${FILESDIR}/2004-add-phy-id-for-nec-pd7285x.patch"
+	"${FILESDIR}/3001-crpp-code-refactoring-with-2to3.patch"
+	"${FILESDIR}/3002-crpp-use-true-division-for-integer-result.patch"
+	"${FILESDIR}/3003-crpp-declare-import-of-some-functions.patch"
+	"${FILESDIR}/3004-crpp-use-open-function-instead-of-file.patch"
+	"${FILESDIR}/3005-crpp-use-binary-representation.patch"
 )
 
-BDEPEND="sys-kernel/linux-headers"
+DEPEND="sys-kernel/linux-headers"
+RDEPEND=">=dev-lang/python-3" # The "crpp" script, used for "lsfirewire -v -v"
 
 src_prepare() {
 	default

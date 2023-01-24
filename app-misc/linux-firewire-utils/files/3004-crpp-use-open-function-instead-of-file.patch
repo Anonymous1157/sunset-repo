@@ -1,0 +1,25 @@
+From 58fa4bcdbd4afe7764e2e0a57be28001c014860f Mon Sep 17 00:00:00 2001
+From: Takashi Sakamoto <o-takashi@sakamocchi.jp>
+Date: Wed, 18 Sep 2019 11:52:47 +0900
+Subject: [PATCH] crpp: use open() function instead of file()
+
+The file() function is obsoleted in Python 3.
+
+Signed-off-by: Takashi Sakamoto <o-takashi@sakamocchi.jp>
+---
+ src/crpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/crpp b/src/crpp
+index 9643a9c..02f98fb 100644
+--- a/src/crpp
++++ b/src/crpp
+@@ -558,7 +558,7 @@ def build_config_rom(f):
+ def build_oui24_db(paths):
+     for p in paths:
+         try:
+-            return dict([(int(l[:6], 16), l[7:-1]) for l in file(p, "r")])
++            return dict([(int(l[:6], 16), l[7:-1]) for l in open(p, "r")])
+         except (IOError, ValueError):
+             continue
+     # fallback: specifiers from the protocols dictionary

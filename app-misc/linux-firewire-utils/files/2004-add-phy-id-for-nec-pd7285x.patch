@@ -1,0 +1,22 @@
+From c7d32cc9d1412f7d52664ad969254fd7a3010042 Mon Sep 17 00:00:00 2001
+From: cyrozap <cyrozap@gmail.com>
+Date: Wed, 2 Oct 2019 19:40:25 -0500
+Subject: [PATCH] Add PHY ID for NEC PD7285x
+
+Read from an NEC uPD72852.
+---
+ src/lsfirewirephy.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/lsfirewirephy.c b/src/lsfirewirephy.c
+index 0a228aa..7ebc760 100644
+--- a/src/lsfirewirephy.c
++++ b/src/lsfirewirephy.c
+@@ -60,6 +60,7 @@ static const struct vendor {
+ 		.name = "NEC",
+ 		.phys = (const struct phy[]) {
+ 			{ 0x000201, "PD7286x" },
++			{ 0x030151, "PD7285x" },
+ 			{ 0x050160, "PD7287x" },
+ 			{}
+ 		}

@@ -1,0 +1,46 @@
+From e7e5ff9e8503354b81738085567152b35ee71ce0 Mon Sep 17 00:00:00 2001
+From: Takashi Sakamoto <o-takashi@sakamocchi.jp>
+Date: Wed, 18 Sep 2019 10:00:40 +0900
+Subject: [PATCH] crpp: declare import of some functions on sys module in the
+ beginning of code
+
+Some import statements are written for 'sys' module. This commit unifies
+them and put it in the beginning of code according to PEP-8.
+
+PEP 8 -- Style Guide for Python Code | Python.org
+https://www.python.org/dev/peps/pep-0008/
+
+Signed-off-by: Takashi Sakamoto <o-takashi@sakamocchi.jp>
+---
+ src/crpp | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+
+diff --git a/src/crpp b/src/crpp
+index 3913aa4..9643a9c 100644
+--- a/src/crpp
++++ b/src/crpp
+@@ -49,6 +49,7 @@ History:
+ 2015-01-31: updated comment on oui.db: let sed squash leading whitespace
+ """
+ from functools import reduce
++from sys import stdin, stdout, exit
+ 
+ ouidb_search_paths = (
+     "/usr/share/misc/oui.db",
+@@ -564,13 +565,11 @@ def build_oui24_db(paths):
+     return dict([(proto[0], proto[1][0]) for proto in iter(protocols.items())])
+ 
+ def main():
+-    import sys
+-    rom = build_config_rom(sys.stdin)
++    rom = build_config_rom(stdin)
+     if not rom[0] >> 24:
+         return "Nothing read."
+     ouidb = build_oui24_db(ouidb_search_paths)
+-    write_config_rom(sys.stdout, ouidb, rom)
++    write_config_rom(stdout, ouidb, rom)
+ 
+ if __name__ == "__main__":
+-    import sys
+-    sys.exit(main())
++    exit(main())

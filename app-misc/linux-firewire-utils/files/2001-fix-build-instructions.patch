@@ -1,0 +1,23 @@
+From b8fac6e87c9176384b310d2204e66409ac4cf800 Mon Sep 17 00:00:00 2001
+From: cyrozap <cyrozap@gmail.com>
+Date: Wed, 28 Aug 2019 19:02:15 -0500
+Subject: [PATCH] Fix build instructions
+
+---
+ README | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/README b/README
+index 1540eab..d4e149e 100644
+--- a/README
++++ b/README
+@@ -15,7 +15,8 @@ Installation
+ This package uses GNU Autoconf; you can use the standard installation
+ sequence:
+ 
+-  configure
++  autoreconf --install
++  ./configure
+   make
+   make install
+ 
