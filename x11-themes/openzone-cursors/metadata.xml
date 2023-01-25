@@ -5,4 +5,7 @@
 <maintainer type="person">
 <email>sunsetsergal@gmail.com</email>
 </maintainer>
+<upstream>
+<remote-id type="github">ducakar/openzone-cursors</remote-id>
+</upstream>
 </pkgmetadata>

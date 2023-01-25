@@ -4,6 +4,9 @@
 <maintainer type="person">
 <email>sunsetsergal@gmail.com</email>
 </maintainer>
+<upstream>
+<remote-id type="github">The-Powder-Toy/The-Powder-Toy</remote-id>
+</upstream>
 <use>
 <flag name="lto">Enable Link Time Optimization, runs smoother with more particles</flag>
 </use>

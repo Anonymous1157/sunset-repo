@@ -5,4 +5,7 @@
 	<maintainer type="person">
 		<email>sunsetsergal@gmail.com</email>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">i-mint/Cloudy</remote-id>
+	</upstream>
 </pkgmetadata>

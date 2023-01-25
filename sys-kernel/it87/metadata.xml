@@ -5,6 +5,9 @@
 	<maintainer type="person">
 		<email>sunsetsergal@gmail.com</email>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">a1wong/it87</remote-id>
+	</upstream>
 	<longdescription lang="en">
 	This driver implements support for the IT8603E, IT8620E, IT8622E, IT8623E,
 	IT8628E, IT8705F, IT8712F, IT8716F, IT8718F, IT8720F, IT8721F, IT8726F, IT8728F,
