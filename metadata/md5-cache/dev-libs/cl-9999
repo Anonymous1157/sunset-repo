@@ -1,0 +1,13 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install unpack
+DEPEND=>=dev-lang/erlang-16 dev-util/rebar:0 >=virtual/opencl-2
+DESCRIPTION=OpenCL bindings for Erlang
+EAPI=8
+HOMEPAGE=https://github.com/tonyrog/cl
+INHERIT=git-r3
+LICENSE=MIT
+PROPERTIES=live
+RDEPEND=>=dev-lang/erlang-16 dev-util/rebar:0 >=virtual/opencl-2
+SLOT=0
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=2e22230568507c50bef212b5e5e9f7f2
