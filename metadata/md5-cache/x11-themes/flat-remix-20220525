@@ -8,6 +8,6 @@ KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RESTRICT=mirror
 SLOT=0
-SRC_URI=https://github.com/daniruiz/Flat-Remix/archive/20211214.tar.gz -> flat-remix-20211214.tar.gz
+SRC_URI=https://github.com/daniruiz/Flat-Remix/archive/20220525.tar.gz -> flat-remix-20220525.tar.gz
 _eclasses_=xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
 _md5_=66cfe7a1bd54f64cf84c0548ee066ae8

@@ -1,13 +1,11 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=install unpack
+DEFINED_PHASES=install
 DESCRIPTION=Gtk2, Gtk3, Gnome Shell, Cinnamon & Metacity themes base on Arc-Theme
 EAPI=7
 HOMEPAGE=https://github.com/i-mint/Cloudy
-INHERIT=git-r3
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-PROPERTIES=live
 RDEPEND=x11-themes/gtk-engines-adwaita x11-themes/gtk-engines-murrine
 RESTRICT=mirror
 SLOT=0
-_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=22312e92a1c487ce88eb33fdfabf986b
+SRC_URI=https://github.com/i-mint/Cloudy/archive/84bdf5c22f6e03820f601b913e833abfba99e79b.tar.gz -> cloudy-20230103.tar.gz
+_md5_=3844538bd3c8fe68e0c19ef7465e80c8
