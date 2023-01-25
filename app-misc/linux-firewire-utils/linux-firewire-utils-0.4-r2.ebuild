@@ -5,7 +5,9 @@
 
 EAPI=7
 
-inherit autotools
+PYTHON_COMPAT=( python3_{8,9,10,11} )
+
+inherit autotools python-single-r1
 
 DESCRIPTION="Utilities to list and configure FireWire devices"
 HOMEPAGE="https://github.com/cladisch/linux-firewire-utils"
@@ -22,6 +24,8 @@ RESTRICT="mirror"
 LICENSE="GPL-2"
 SLOT="0"
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
 PATCHES=(
 	"${FILESDIR}/1001-use-autotools-prefix.patch"
 	"${FILESDIR}/2001-fix-build-instructions.patch"
@@ -35,9 +39,14 @@ PATCHES=(
 )
 
 DEPEND="sys-kernel/linux-headers"
-RDEPEND=">=dev-lang/python-3" # The "crpp" script, used for "lsfirewire -v -v"
+RDEPEND="${PYTHON_DEPS}" # The "crpp" script, used for "lsfirewire -v -v"
 
 src_prepare() {
 	default
 	eautoreconf
+}
+
+src_compile() {
+	default
+	python_fix_shebang "${S}/src/crpp"
 }
