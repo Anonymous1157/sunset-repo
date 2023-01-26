@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install setup test
+DEPEND=lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) media-libs/libpng:0/16 media-libs/libsdl2 curl? ( net-misc/curl ) fftw? ( sci-libs/fftw ) app-arch/bzip2 dev-libs/jsoncpp
+DESCRIPTION=A desktop version of the classic 'falling sand' physics sandbox
+EAPI=8
+HOMEPAGE=https://powdertoy.co.uk/
+INHERIT=meson lua-single desktop
+IUSE=lto +lua +fftw +curl cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3 lua_single_target_luajit lua_single_target_lua5-1
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-3
+RDEPEND=lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) media-libs/libpng:0/16 media-libs/libsdl2 curl? ( net-misc/curl ) fftw? ( sci-libs/fftw ) app-arch/bzip2 dev-libs/jsoncpp
+REQUIRED_USE=lua? ( ^^ ( lua_single_target_luajit lua_single_target_lua5-1 ) )
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/The-Powder-Toy/The-Powder-Toy/archive/refs/tags/v97.0.352.tar.gz -> powdertoy-97.0.352.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	meson	1994a5aef5d4f5798b92f64d6f9a6003	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143	desktop	7eb20ad915a0a318176d51bc2508ff5c
+_md5_=de24423d1a490f333a4b77258f0f5ec5
