@@ -17,9 +17,14 @@ SLOT="0"
 RDEPEND="
 	>=dev-lang/erlang-16
 	dev-util/rebar:0
-	>=virtual/opencl-2
+	virtual/opencl
 "
 DEPEND="${RDEPEND}"
+
+src_prepare() {
+	sed -i -e 's# -Werror##g;s# -O3##g' $(find -name Makefile) || die
+	default
+}
 
 src_compile() {
 	rebar compile || die
