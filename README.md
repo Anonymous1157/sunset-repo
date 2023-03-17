@@ -4,16 +4,16 @@ Hi! I use Gentoo. Sometimes I change official packages to fix bugs, install newe
 
 ## Adding this overlay to your system
 
-If you use eselect-repository:
+**UPDATE**: This repo has been added to the global list of Gentoo repositories! You can add it automagically with eselect-repository:
+
+```
+eselect repository enable sunset-repo
+```
+
+You can still add it manually if you want to:
 
 ```
 eselect repository add sunset-repo git https://github.com/Anonymous1157/sunset-repo.git
 ```
 
-If you use layman:
-
-```
-layman -o https://raw.github.com/Anonymous1157/sunset-repo/master/repositories.xml -f -a sunset-repo
-```
-
-You're on your own if you want to add it manually or have another repository management solution.
+Note that [eselect-repository supersedes Layman](https://wiki.gentoo.org/wiki/Layman), so if you're still using Layman, you should consider switching.
