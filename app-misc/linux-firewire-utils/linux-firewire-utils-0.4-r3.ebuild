@@ -5,7 +5,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8,9,10,11} )
+PYTHON_COMPAT=( python3_{8,9,10,11,12} )
 
 inherit autotools python-single-r1
 
@@ -36,6 +36,7 @@ PATCHES=(
 	"${FILESDIR}/3003-crpp-declare-import-of-some-functions.patch"
 	"${FILESDIR}/3004-crpp-use-open-function-instead-of-file.patch"
 	"${FILESDIR}/3005-crpp-use-binary-representation.patch"
+	"${FILESDIR}/4001-crpp-stop-confusing-python3_12.patch"
 )
 
 DEPEND="sys-kernel/linux-headers"
