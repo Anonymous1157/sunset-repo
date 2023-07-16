@@ -6,12 +6,13 @@
 		<email>sunsetsergal@gmail.com</email>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">twifty/aura-gpu</remote-id>
+		<remote-id type="github">galkinvv/aura-gpu</remote-id>
 	</upstream>
 	<longdescription lang="en">
-	This is an I2C driver for AMD GPUs that contain Asus AURA compatible RGB
-	lighting. It's currently far from complete and very few devices are present
-	in its list of PCI IDs. Feel free to patch in new devices, test they work,
-	and open a bug upstream.
+	This is an I2C driver for Asus GPUs that contain Asus AURA RGB lighting.
+
+	All nVidia GPUs by Asus with a compatible AURA chip should work, but AMD GPUs
+	require manually starting their I2C so have to be hardcoded, and very few are
+	hardcoded.
 	</longdescription>
 </pkgmetadata>

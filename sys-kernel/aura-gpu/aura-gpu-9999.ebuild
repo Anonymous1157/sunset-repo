@@ -3,12 +3,12 @@
 
 # Source: Written from scratch for sunset-repo overlay
 
-EAPI=7
+EAPI=8
 
-inherit git-r3 linux-mod
+inherit git-r3 linux-mod-r1
 
 DESCRIPTION="i2c driver for Asus AURA RGB lighting in GPUs"
-HOMEPAGE="https://github.com/twifty/aura-gpu"
+HOMEPAGE="https://github.com/galkinvv/aura-gpu-i2c"
 EGIT_REPO_URI="${HOMEPAGE}.git"
 
 LICENSE="GPL-2"
@@ -17,16 +17,21 @@ if [[ "${PV%9999}" == "${PV}" ]] ; then
 	KEYWORDS="~amd64 ~x86"
 fi
 
-MODULE_NAMES="aura-gpu(extra:${S})"
+src_prepare() {
+	# Extra PCI IDs from various never-merged issues and PRs in forks
+	sed \
+	-e '/{0, 0, 0}/i\    {0x1002, 0x67df, 0x1043, 0x04c2, 0, 0, CHIP_POLARIS10},     // RX570 (Strix)' \
+	-e '/{0, 0, 0}/i\    {0x1002, 0x731f, 0x1da2, 0xe410, 0, 0, CHIP_NAVI10},        // RX5700XT (Sapphire)' \
+	-e '/{0, 0, 0}/i\    {0x1002, 0x67df, 0x1043, 0x0588, 0, 0, CHIP_POLARIS10},     // RX570 8G (Strix)' \
+	-e '/{0, 0, 0}/i\    {0x1002, 0x67df, 0x1043, 0x0519, 0, 0, CHIP_POLARIS10},     // RX580 (Strix TOP)' \
+	-e '/{0, 0, 0}/i\    {0x1002, 0x67FF, 0x1043, 0x04BC, 0, 0, CHIP_POLARIS11},     // RX560' \
+	-i "${S}/pci_ids.h"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-new-makefile.patch"
-	"${FILESDIR}/${PN}-add-supported-cards.patch"
-	"${FILESDIR}/${PN}-add-driver-info.patch"
-)
+	default
+}
 
-pkg_setup() {
-	linux-mod_pkg_setup
-	# linux-mod_pkg_setup -> linux-info_pkg_setup -> linux-info_get_any_version -> get_version -> KV_OUT_DIR
-	BUILD_PARAMS="KERNELDIR=${KV_OUT_DIR}"
+src_compile() {
+	local modlist=( aura-gpu=extra )
+
+	linux-mod-r1_src_compile
 }
