@@ -6,7 +6,7 @@
 		<email>sunsetsergal@gmail.com</email>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">cladisch/linux-firewire-utils</remote-id>
+		<remote-id type="github">takaswie/linux-firewire-utils</remote-id>
 	</upstream>
 	<longdescription lang="en">
 	This package contains utilities for listing devices (lsfirewire,
