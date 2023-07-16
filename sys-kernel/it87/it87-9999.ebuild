@@ -3,25 +3,19 @@
 
 # Source: Written from scratch for sunset-repo overlay
 
-EAPI=7
+EAPI=8
 
-inherit git-r3 linux-mod
+inherit git-r3 linux-mod-r1
 
 DESCRIPTION="IT8705F/IT871xF/IT872xF hardware monitoring driver"
-HOMEPAGE="https://github.com/a1wong/it87"
+HOMEPAGE="https://github.com/frankcrawford/it87"
 EGIT_REPO_URI="${HOMEPAGE}.git"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 if [[ "${PV%9999}" == "${PV}" ]] ; then
 	KEYWORDS="~amd64 ~x86"
 fi
-
-CONFIG_CHECK="~!SENSORS_IT87"
-ERROR_SENSORS_IT87="Please make sure SENSORS_IT87=m or you won't be able to load this module!\n"
-ERROR_SENSORS_IT87+="(You don't have to disable it entirely since we package a depmod.d file)"
-MODULE_NAMES="it87(hwmon:${S})"
-BUILD_TARGETS="clean modules"
 
 DOCS=(
 	"${S}/README"
@@ -29,16 +23,29 @@ DOCS=(
 )
 
 pkg_setup() {
-	linux-mod_pkg_setup
-	# linux-mod_pkg_setup -> linux-info_pkg_setup -> linux-info_get_any_version -> get_version -> KV_FULL
-	BUILD_PARAMS="TARGET=${KV_FULL}"
+	linux-mod-r1_pkg_setup
+
+	# Using a CONFIG_CHECK wasn't quite right because we package a depmod.d file
+	#  to override the in-tree module, so we don't want to warn the user if they
+	#  have a supported config.
+	if linux_config_exists && linux_chkconfig_builtin SENSORS_IT87
+	then
+		ewarn "You will not be able to load this module because the in-tree version is builtin"
+		ewarn "(CONFIG_SENSORS_IT87=y in your kernel config)! Please recompile your kernel"
+		ewarn "with CONFIG_SENSORS_IT87=m or =n to use this module."
+	fi
+}
+
+src_compile() {
+	local modlist=( it87=hwmon:"${S}":"${S}":all )
+	local modargs=( TARGET="${KV_FULL}" )
+
+	linux-mod-r1_src_compile
 }
 
 src_install() {
-	linux-mod_src_install
-	einstalldocs
+	linux-mod-r1_src_install
 
-	# Tell kmod to prefer this module over the kernel tree one
 	mkdir -p "${ED}/lib/depmod.d" || die
 	echo "override ${PN} ${KV_FULL} hwmon" > "${ED}/lib/depmod.d/${PN}.conf" || die
 }

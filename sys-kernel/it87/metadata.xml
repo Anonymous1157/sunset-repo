@@ -6,7 +6,7 @@
 		<email>sunsetsergal@gmail.com</email>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">a1wong/it87</remote-id>
+		<remote-id type="github">frankcrawford/it87</remote-id>
 	</upstream>
 	<longdescription lang="en">
 	This driver implements support for the IT8603E, IT8620E, IT8622E, IT8623E,
