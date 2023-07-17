@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Source: Written from scratch for sunset-repo overlay -->
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>sunsetsergal@gmail.com</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">chungy/reflac</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		This is a script that allows you to recompress FLAC files while preserving their tags, intended for whole directories and for safety regardless of file name characters and encoding.
+	</longdescription>
+</pkgmetadata>
