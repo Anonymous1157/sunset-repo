@@ -32,6 +32,7 @@ src_prepare() {
 
 src_compile() {
 	local modlist=( aura-gpu=extra )
+	local modargs=( KERNEL_SOURCE_DIR="${KV_OUT_DIR}" )
 
 	linux-mod-r1_src_compile
 }
