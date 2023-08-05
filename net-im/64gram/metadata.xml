@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Source: =net-im/telegram-desktop-4.8.4-r2 from default Gentoo overlay -->
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>sunsetsergal@gmail.com</email>
+	</maintainer>
+	<use>
+		<flag name="enchant">Use the <pkg>app-text/enchant</pkg> spell-checking backend instead of <pkg>app-text/hunspell</pkg></flag>
+		<flag name="fonts">Use builtin patched copy of open-sans fonts (overrides fontconfig)</flag>
+		<flag name="qt6">Build with Qt6 support</flag>
+		<flag name="qt6-imageformats">Add support for HEIF, AVIF and JpegXL by bundling kde-frameworks/kimageformats</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">TDesktop-x64/tdesktop</remote-id>
+	</upstream>
+</pkgmetadata>
