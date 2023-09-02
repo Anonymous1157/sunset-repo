@@ -13,5 +13,5 @@ REQUIRED_USE=lua? ( ^^ ( lua_single_target_luajit lua_single_target_lua5-1 ) )
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/The-Powder-Toy/The-Powder-Toy/archive/refs/tags/v97.0.352.tar.gz -> powdertoy-97.0.352.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	1f435bc389faf790af695df46b8dcb73	meson	08b7183c3f4811568ee93eb0f79a89fe	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	desktop	021728fdc1b03b36357dbc89489e0f0d
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	59e60e9c5cbd3f214d7f1002e798b387	meson	08b7183c3f4811568ee93eb0f79a89fe	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	desktop	021728fdc1b03b36357dbc89489e0f0d
 _md5_=cce920ac42ca76c0d9115059250214af
