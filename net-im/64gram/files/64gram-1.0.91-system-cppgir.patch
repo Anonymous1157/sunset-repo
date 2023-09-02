@@ -1,0 +1,47 @@
+diff -rU3 64Gram-1.0.91-full.orig/cmake/external/glib/CMakeLists.txt 64Gram-1.0.91-full/cmake/external/glib/CMakeLists.txt
+--- 64Gram-1.0.91-full.orig/cmake/external/glib/CMakeLists.txt	2023-08-16 00:16:48.766275000 -0400
++++ 64Gram-1.0.91-full/cmake/external/glib/CMakeLists.txt	2023-09-01 22:35:15.734035979 -0400
+@@ -7,14 +7,6 @@
+ add_library(external_glib INTERFACE IMPORTED GLOBAL)
+ add_library(desktop-app::external_glib ALIAS external_glib)
+ 
+-function(add_cppgir) # isolate scope
+-    set(BUILD_TESTING OFF)
+-    set(BUILD_DOC OFF)
+-    set(BUILD_EXAMPLES OFF)
+-    add_subdirectory(cppgir EXCLUDE_FROM_ALL)
+-endfunction()
+-add_cppgir()
+-
+ include(generate_cppgir.cmake)
+ generate_cppgir(external_glib Gio-2.0)
+ 
+diff -rU3 64Gram-1.0.91-full.orig/cmake/external/glib/generate_cppgir.cmake 64Gram-1.0.91-full/cmake/external/glib/generate_cppgir.cmake
+--- 64Gram-1.0.91-full.orig/cmake/external/glib/generate_cppgir.cmake	2023-08-16 00:16:48.766275000 -0400
++++ 64Gram-1.0.91-full/cmake/external/glib/generate_cppgir.cmake	2023-09-01 22:38:45.713337275 -0400
+@@ -4,6 +4,8 @@
+ # For license and copyright information please follow this link:
+ # https://github.com/desktop-app/legal/blob/master/LEGAL
+ 
++find_package(CppGir REQUIRED)
++
+ function(generate_cppgir target_name gir)
+     # cppgir generates all the dependent headers everytime, better to have a global folder
+     set(gen_dst ${CMAKE_BINARY_DIR}/gen)
+@@ -20,7 +22,7 @@
+     OUTPUT
+         ${gen_timestamp}
+     COMMAND
+-        CppGir::cppgir
++        cppgir
+         --debug
+         1
+         --class
+@@ -36,7 +38,6 @@
+         echo 1> ${gen_timestamp}
+     COMMENT "Generating C++ wrapper for ${gir} (${target_name})"
+     DEPENDS
+-        CppGir::cppgir
+         ${gir_path}
+     )
+     generate_target(${target_name} cppgir ${gen_timestamp} "" ${gen_dst})
