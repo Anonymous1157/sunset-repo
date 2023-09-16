@@ -100,7 +100,7 @@ PATCHES=(
 	"${FILESDIR}/64gram-1.0.88-jemalloc-only-telegram.patch"
 	"${FILESDIR}/64gram-1.0.91-system-cppgir.patch"
 	"${FILESDIR}/64gram-1.0.91-fix-clang.patch"
-	"${FILESDIR}/64gram-1.0.88-remove-private-qt.patch"
+	"${FILESDIR}/64gram-1.0.93-remove-private-qt.patch"
 )
 
 # Current desktop-file-utils-0.26 does not understand Version=1.5
