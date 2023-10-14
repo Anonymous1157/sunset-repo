@@ -27,10 +27,6 @@ DEPEND="
 	dev-cpp/eigen
 "
 
-PATCHES=(
-	"${FILESDIR}/erlang-25.patch"
-)
-
 src_prepare() {
 	sed -i -e 's# -Werror##g;s# -O3##g' $(find -name Makefile) || die
 	sed -i -e 's#DEPS += libigl eigen##g' $(find -name Makefile) || die
