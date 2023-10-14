@@ -1,11 +1,11 @@
 # Copyright 2020-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Source: =net-im/telegram-desktop-4.8.4-r2 from default Gentoo overlay
+# Source: =net-im/telegram-desktop-4.10.3 from default Gentoo overlay
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..12} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit xdg cmake python-any-r1 optfeature flag-o-matic
 
@@ -18,9 +18,8 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
-# Need glibmm >=2.77 which is not in Gentoo yet
-#KEYWORDS="~amd64 ~riscv"
-IUSE="enchant +fonts +jemalloc screencast qt6 qt6-imageformats wayland +X"
+KEYWORDS="~amd64 ~arm64 ~riscv"
+IUSE="dbus enchant +fonts +jemalloc screencast qt6 qt6-imageformats wayland webkit +X"
 REQUIRED_USE="
 	qt6-imageformats? ( qt6 )
 "
@@ -30,7 +29,7 @@ KIMAGEFORMATS_RDEPEND="
 	media-libs/libheif:=
 	media-libs/libjxl
 "
-RDEPEND="
+CDEPEND="
 	!net-im/telegram-desktop-bin
 	!net-im/telegram-desktop
 	app-arch/lz4:=
@@ -38,17 +37,15 @@ RDEPEND="
 	>=dev-cpp/glibmm-2.77:2.68
 	dev-libs/glib:2
 	dev-libs/libdispatch
-	dev-libs/libsigc++:2
 	dev-libs/openssl:=
 	dev-libs/protobuf
 	dev-libs/xxhash
-	media-libs/fontconfig:=
 	media-libs/libjpeg-turbo:=
 	~media-libs/libtgvoip-2.4.4_p20221208
 	media-libs/openal
 	media-libs/opus
 	media-libs/rnnoise
-	~media-libs/tg_owt-0_pre20230428:=[screencast=,X=]
+	~media-libs/tg_owt-0_pre20230921:=[screencast=,X=]
 	media-video/ffmpeg:=[opus,vpx]
 	sys-libs/zlib:=[minizip]
 	virtual/opengl
@@ -56,21 +53,29 @@ RDEPEND="
 	enchant? ( app-text/enchant:= )
 	jemalloc? ( dev-libs/jemalloc:=[-lazy-lock] )
 	!qt6? (
-		>=dev-qt/qtcore-5.15:5
-		>=dev-qt/qtgui-5.15:5[dbus,jpeg,png,wayland?,X?]
+		>=dev-qt/qtcore-5.15:5=
+		>=dev-qt/qtgui-5.15:5=[dbus?,jpeg,png,wayland?,X?]
 		>=dev-qt/qtimageformats-5.15:5
 		>=dev-qt/qtnetwork-5.15:5[ssl]
 		>=dev-qt/qtsvg-5.15:5
 		>=dev-qt/qtwidgets-5.15:5[png,X?]
-		kde-frameworks/kcoreaddons:=
+		kde-frameworks/kcoreaddons:5
+		webkit? (
+			>=dev-qt/qtdeclarative-5.15:5
+			>=dev-qt/qtwayland-5.15:5
+		)
 	)
 	qt6? (
-		dev-qt/qtbase:6[dbus,gui,network,opengl,widgets,X?]
-		dev-qt/qtimageformats:6
-		dev-qt/qtsvg:6
-		wayland? ( dev-qt/qtwayland:6 )
+		>=dev-qt/qtbase-6.5:6=[dbus?,gui,network,opengl,wayland?,widgets,X?]
+		>=dev-qt/qtimageformats-6.5:6
+		>=dev-qt/qtsvg-6.5:6
+		wayland? ( >=dev-qt/qtwayland-6.5:6[compositor] )
+		webkit? (
+			>=dev-qt/qtdeclarative-6.5:6
+			>=dev-qt/qtwayland-6.5:6[compositor]
+		)
 		qt6-imageformats? (
-			dev-qt/qtimageformats:6=
+			>=dev-qt/qtimageformats-6.5:6=
 			${KIMAGEFORMATS_RDEPEND}
 		)
 	)
@@ -79,14 +84,17 @@ RDEPEND="
 		x11-libs/xcb-util-keysyms
 	)
 "
-DEPEND="${RDEPEND}
-	>=dev-cpp/cppgir-0_p20230807
+RDEPEND="${CDEPEND}
+	webkit? ( net-libs/webkit-gtk:4 )
+"
+DEPEND="${CDEPEND}
+	>=dev-cpp/cppgir-0_p20230926
 	>=dev-cpp/ms-gsl-4
 	dev-cpp/range-v3
 "
 BDEPEND="
 	${PYTHON_DEPS}
-	>=dev-cpp/cppgir-0_p20230807
+	>=dev-cpp/cppgir-0_p20230926
 	>=dev-util/cmake-3.16
 	dev-util/gdbus-codegen
 	virtual/pkgconfig
@@ -99,12 +107,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}/64gram-1.0.88-jemalloc-only-telegram.patch"
 	"${FILESDIR}/64gram-1.0.91-system-cppgir.patch"
-	"${FILESDIR}/64gram-1.0.91-fix-clang.patch"
-	"${FILESDIR}/64gram-1.0.93-remove-private-qt.patch"
 )
-
-# Current desktop-file-utils-0.26 does not understand Version=1.5
-QA_DESKTOP_FILE="usr/share/applications/${PN}.desktop"
 
 pkg_pretend() {
 	if has ccache ${FEATURES}; then
@@ -113,13 +116,6 @@ pkg_pretend() {
 		ewarn "check bug https://bugs.gentoo.org/715114 for more info"
 		ewarn
 	fi
-}
-
-pkg_setup() {
-	# Having inaccessible paths sneak into the build environment through the
-	# XDG_DATA_DIRS variable breaks cppgir.
-	# bug 909038
-	unset XDG_DATA_DIRS
 }
 
 src_prepare() {
@@ -139,11 +135,21 @@ src_prepare() {
 	#   cmake/external/kcoreaddons/CMakeLists.txt
 
 	# Happily fail if libraries aren't found...
-	find -type f -name 'CMakeLists.txt' \
-		\! -path "./cmake/external/expected/CMakeLists.txt" \
+	find -type f \( -name 'CMakeLists.txt' -o -name '*.cmake' \) \
+		\! -path './cmake/external/expected/CMakeLists.txt' \
+		\! -path './cmake/external/qt/package.cmake' \
+		\! -path './Telegram/lib_webview/CMakeLists.txt' \
 		-print0 | xargs -0 sed -i \
 		-e '/pkg_check_modules(/s/[^ ]*)/REQUIRED &/' \
 		-e '/find_package(/s/)/ REQUIRED)/' || die
+	# Make sure to check the excluded files for new
+	# CMAKE_DISABLE_FIND_PACKAGE entries.
+
+	# Control QtDBus dependency from here, to avoid messing with QtGui.
+	if ! use dbus; then
+		sed -e '/find_package(Qt[^ ]* OPTIONAL_COMPONENTS/s/DBus *//' \
+			-i cmake/external/qt/package.cmake || die
+	fi
 
 	cmake_src_prepare
 }
@@ -154,15 +160,26 @@ src_configure() {
 	# See https://bugs.gentoo.org/866055
 	append-cppflags '-DNDEBUG'
 
+	local qt=$(usex qt6 6 5)
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_tl-expected=ON  # header only lib, some git version. prevents warnings.
-		-DQT_VERSION_MAJOR=$(usex qt6 6 5)
+		-DQT_VERSION_MAJOR=${qt}
+
+		# Control automagic dependencies on certain packages
+		## Header-only lib, some git version.
+		-DCMAKE_DISABLE_FIND_PACKAGE_tl-expected=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt${qt}Quick=$(usex !webkit)
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt${qt}QuickWidgets=$(usex !webkit)
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt${qt}WaylandClient=$(usex !wayland)
+		## Only used in Telegram/lib_webview/CMakeLists.txt
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt${qt}WaylandCompositor=$(usex !webkit)
 
 		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex !X)
 		-DDESKTOP_APP_DISABLE_WAYLAND_INTEGRATION=$(usex !wayland)
 		-DDESKTOP_APP_DISABLE_JEMALLOC=$(usex !jemalloc)
-		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)  # enables enchant and disables hunspell
-		-DDESKTOP_APP_USE_PACKAGED_FONTS=$(usex !fonts)  # use system fonts instead of bundled ones
+		## Enables enchant and disables hunspell
+		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)
+		## Use system fonts instead of bundled ones
+		-DDESKTOP_APP_USE_PACKAGED_FONTS=$(usex !fonts)
 	)
 
 	if [[ -n ${MY_TDESKTOP_API_ID} && -n ${MY_TDESKTOP_API_HASH} ]]; then
@@ -197,22 +214,11 @@ pkg_postinst() {
 		ewarn "both the 'X' and 'screencast' USE flags are disabled, screen sharing won't work!"
 		ewarn
 	fi
-	if has_version '<dev-qt/qtcore-5.15.2-r10'; then
-		ewarn "Versions of dev-qt/qtcore lower than 5.15.2-r10 might cause telegram"
-		ewarn "to crash when pasting big images from the clipboard."
-		ewarn
-	fi
 	if ! use jemalloc && use elibc_glibc; then
 		# https://github.com/telegramdesktop/tdesktop/issues/16084
 		# https://github.com/desktop-app/cmake_helpers/pull/91#issuecomment-881788003
 		ewarn "Disabling USE=jemalloc on glibc systems may cause very high RAM usage!"
 		ewarn "Do NOT report issues about RAM usage without enabling this flag first."
-		ewarn
-	fi
-	if use qt6; then
-		ewarn "Qt6 support in gentoo is experimental."
-		ewarn "Please report any issues you may find, but don't expect"
-		ewarn "everything to work correctly as of yet."
 		ewarn
 	fi
 	if use wayland && ! use qt6; then
@@ -227,7 +233,6 @@ pkg_postinst() {
 		elog
 	fi
 	optfeature_header
-	optfeature "shop payment support" net-libs/webkit-gtk:4
 	if ! use qt6; then
 		optfeature "AVIF, HEIF and JpegXL image support" kde-frameworks/kimageformats[avif,heif,jpegxl]
 	fi
