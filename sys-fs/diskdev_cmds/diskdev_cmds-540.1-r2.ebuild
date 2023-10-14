@@ -14,7 +14,6 @@ SRC_URI="https://src.fedoraproject.org/repo/pkgs/${FEDORA_PN}/${PN}-${MY_PV}.tar
 LICENSE="APSL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 DEPEND="dev-libs/openssl:="
 RDEPEND="${DEPEND}"
 BDEPEND="sys-devel/clang"

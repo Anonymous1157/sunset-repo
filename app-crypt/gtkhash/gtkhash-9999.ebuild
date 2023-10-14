@@ -26,7 +26,6 @@ DEPEND="dev-libs/libgcrypt
 	nemo? ( gnome-extra/nemo )
 	thunar? ( xfce-base/thunar )"
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_configure() {
 	local emesonargs=(

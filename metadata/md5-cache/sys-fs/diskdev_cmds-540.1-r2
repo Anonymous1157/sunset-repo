@@ -9,4 +9,4 @@ LICENSE=APSL-2
 RDEPEND=dev-libs/openssl:=
 SLOT=0
 SRC_URI=https://src.fedoraproject.org/repo/pkgs/hfsplus-tools/diskdev_cmds-540.1.linux3.tar.gz/0435afc389b919027b69616ad1b05709/diskdev_cmds-540.1.linux3.tar.gz
-_md5_=0ff613e0070cd77151d893f9e9f52cc9
+_md5_=4b723c6d029baed94f410c65bedc69a1
