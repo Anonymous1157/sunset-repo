@@ -1,0 +1,11 @@
+diff -rU3 64Gram-1.1.1-full.orig/Telegram/lib_base/base/qt/qt_compare.h 64Gram-1.1.1-full/Telegram/lib_base/base/qt/qt_compare.h
+--- 64Gram-1.1.1-full.orig/Telegram/lib_base/base/qt/qt_compare.h	2023-10-26 15:11:40.805566800 -0400
++++ 64Gram-1.1.1-full/Telegram/lib_base/base/qt/qt_compare.h	2023-11-03 23:00:47.553149309 -0400
+@@ -10,6 +10,7 @@
+ #include <gsl/pointers>
+ 
+ #include <QString>
++#include <variant>
+ 
+ #if !defined(__apple_build_version__) || (__apple_build_version__ > 12000032)
+ 
