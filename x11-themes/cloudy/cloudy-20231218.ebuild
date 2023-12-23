@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/i-mint/Cloudy"
 
 MY_PN="Cloudy"
 
-EGIT_COMMIT="58eff5cb0fcf81a3dd7cd71a89c0e7e0f1e619b9"
+EGIT_COMMIT="a631584721ea18d14fa2f46a561d7d1fb7422b3c"
 SRC_URI="https://github.com/i-mint/Cloudy/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64 ~x86"
 S="${WORKDIR}/${MY_PN}-${EGIT_COMMIT}"
