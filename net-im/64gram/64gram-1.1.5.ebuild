@@ -1,13 +1,13 @@
 # Copyright 2020-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Source: =net-im/telegram-desktop-4.11.1 from default Gentoo overlay
+# Source: =net-im/telegram-desktop-4.12.2 from default Gentoo overlay
 
 EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit xdg cmake python-any-r1 optfeature flag-o-matic
+inherit xdg cmake python-any-r1 optfeature flag-o-matic edos2unix
 
 DESCRIPTION="Unofficial Telegram Desktop fork with added patches and features"
 HOMEPAGE="https://github.com/TDesktop-x64/tdesktop"
@@ -19,7 +19,7 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv"
-IUSE="dbus enchant +fonts +jemalloc screencast qt6 qt6-imageformats wayland webkit +X"
+IUSE="dbus enchant +fonts screencast qt6 qt6-imageformats wayland webkit +X"
 REQUIRED_USE="
 	qt6-imageformats? ( qt6 )
 "
@@ -27,7 +27,7 @@ REQUIRED_USE="
 KIMAGEFORMATS_RDEPEND="
 	media-libs/libavif:=
 	media-libs/libheif:=
-	media-libs/libjxl
+	>=media-libs/libjxl-0.8.0
 "
 CDEPEND="
 	!net-im/telegram-desktop-bin
@@ -51,7 +51,6 @@ CDEPEND="
 	virtual/opengl
 	!enchant? ( >=app-text/hunspell-1.7:= )
 	enchant? ( app-text/enchant:= )
-	jemalloc? ( dev-libs/jemalloc:=[-lazy-lock] )
 	!qt6? (
 		>=dev-qt/qtcore-5.15:5=
 		>=dev-qt/qtgui-5.15:5=[dbus?,jpeg,png,wayland?,X?]
@@ -84,7 +83,7 @@ CDEPEND="
 	)
 "
 RDEPEND="${CDEPEND}
-	webkit? ( net-libs/webkit-gtk:4 )
+	webkit? ( net-libs/webkit-gtk:4.1 net-libs/webkit-gtk:6 )
 "
 DEPEND="${CDEPEND}
 	>=dev-cpp/cppgir-0_p20230926
@@ -99,14 +98,12 @@ BDEPEND="
 	virtual/pkgconfig
 	wayland? ( dev-util/wayland-scanner )
 "
-# dev-libs/jemalloc:=[-lazy-lock] -> https://bugs.gentoo.org/803233
 
 # 64gram was originally a Windows specific fork so all line endings are
 # changed from Unix to DOS. Patches are functionally identical to the ones
 # from net-im/telegram-desktop but had to be regenerated.
 PATCHES=(
-	"${FILESDIR}/64gram-1.0.88-jemalloc-only-telegram.patch"
-	"${FILESDIR}/64gram-1.0.91-system-cppgir.patch"
+	"${FILESDIR}/64gram-1.1.5-system-cppgir.patch"
 	"${FILESDIR}/64gram-1.1.1-qt_compare.patch"
 )
 
@@ -131,9 +128,7 @@ src_prepare() {
 			'Q_IMPORT_PLUGIN(QJpegXLPlugin)' \
 			>> cmake/external/qt/qt_static_plugins/qt_static_plugins.cpp || die
 	fi
-
-	# kde-frameworks/kcoreaddons is bundled when using qt6,
-	#   see src_configure.
+	# kde-frameworks/kcoreaddons is bundled when using qt6.
 
 	# Happily fail if libraries aren't found...
 	find -type f \( -name 'CMakeLists.txt' -o -name '*.cmake' \) \
@@ -153,10 +148,15 @@ src_prepare() {
 			-i cmake/external/qt/package.cmake || die
 	fi
 
+	edos2unix lib/xdg/io.github.tdesktop_x64.TDesktop.desktop
+
 	cmake_src_prepare
 }
 
 src_configure() {
+	# Evil flag (bug #919201)
+	filter-flags -fno-delete-null-pointer-checks
+
 	# The ABI of media-libs/tg_owt breaks if the -DNDEBUG flag doesn't keep
 	# the same state across both projects.
 	# See https://bugs.gentoo.org/866055
@@ -179,7 +179,6 @@ src_configure() {
 
 		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex !X)
 		-DDESKTOP_APP_DISABLE_WAYLAND_INTEGRATION=$(usex !wayland)
-		-DDESKTOP_APP_DISABLE_JEMALLOC=$(usex !jemalloc)
 		## Enables enchant and disables hunspell
 		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)
 		## Use system fonts instead of bundled ones
@@ -216,13 +215,6 @@ pkg_postinst() {
 	xdg_pkg_postinst
 	if ! use X && ! use screencast; then
 		ewarn "both the 'X' and 'screencast' USE flags are disabled, screen sharing won't work!"
-		ewarn
-	fi
-	if ! use jemalloc && use elibc_glibc; then
-		# https://github.com/telegramdesktop/tdesktop/issues/16084
-		# https://github.com/desktop-app/cmake_helpers/pull/91#issuecomment-881788003
-		ewarn "Disabling USE=jemalloc on glibc systems may cause very high RAM usage!"
-		ewarn "Do NOT report issues about RAM usage without enabling this flag first."
 		ewarn
 	fi
 	if use wayland && ! use qt6; then
