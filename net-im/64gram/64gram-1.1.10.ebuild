@@ -1,7 +1,7 @@
-# Copyright 2020-2023 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Source: =net-im/telegram-desktop-4.12.2 from default Gentoo overlay
+# Source: =net-im/telegram-desktop-4.14.6 from default Gentoo overlay
 
 EAPI=8
 
@@ -18,7 +18,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv"
 IUSE="dbus enchant +fonts screencast qt6 qt6-imageformats wayland webkit +X"
 REQUIRED_USE="
 	qt6-imageformats? ( qt6 )
@@ -31,7 +31,6 @@ KIMAGEFORMATS_RDEPEND="
 "
 CDEPEND="
 	!net-im/telegram-desktop-bin
-	!net-im/telegram-desktop
 	app-arch/lz4:=
 	dev-cpp/abseil-cpp:=
 	>=dev-cpp/glibmm-2.77:2.68
@@ -86,14 +85,14 @@ RDEPEND="${CDEPEND}
 	webkit? ( net-libs/webkit-gtk:4.1 net-libs/webkit-gtk:6 )
 "
 DEPEND="${CDEPEND}
-	>=dev-cpp/cppgir-0_p20230926
+	>=dev-cpp/cppgir-0_p20240110
 	>=dev-cpp/ms-gsl-4
 	dev-cpp/range-v3
 "
 BDEPEND="
 	${PYTHON_DEPS}
+	>=dev-build/cmake-3.16
 	>=dev-cpp/cppgir-0_p20230926
-	>=dev-util/cmake-3.16
 	dev-util/gdbus-codegen
 	virtual/pkgconfig
 	wayland? ( dev-util/wayland-scanner )
@@ -154,6 +153,12 @@ src_prepare() {
 }
 
 src_configure() {
+	# Having user paths sneak into the build environment through the
+	# XDG_DATA_DIRS variable causes all sorts of weirdness with cppgir:
+	# - bug 909038: can't read from flatpak directories (fixed upstream)
+	# - bug 920819: system-wide directories ignored when variable is set
+	export XDG_DATA_DIRS="${EPREFIX}/usr/share"
+
 	# Evil flag (bug #919201)
 	filter-flags -fno-delete-null-pointer-checks
 
@@ -165,6 +170,10 @@ src_configure() {
 	local qt=$(usex qt6 6 5)
 	local mycmakeargs=(
 		-DQT_VERSION_MAJOR=${qt}
+
+		# Override new cmake.eclass defaults (https://bugs.gentoo.org/921939)
+		# Upstream never tests this any other way
+		-DCMAKE_DISABLE_PRECOMPILE_HEADERS=OFF
 
 		# Control automagic dependencies on certain packages
 		## Header-only lib, some git version.
