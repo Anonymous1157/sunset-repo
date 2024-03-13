@@ -1,7 +1,7 @@
 # Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Source: =net-im/telegram-desktop-4.14.6 from default Gentoo overlay
+# Source: =net-im/telegram-desktop-4.15.0-r1 from default Gentoo overlay
 
 EAPI=8
 
@@ -27,7 +27,7 @@ REQUIRED_USE="
 KIMAGEFORMATS_RDEPEND="
 	media-libs/libavif:=
 	media-libs/libheif:=
-	>=media-libs/libjxl-0.8.0
+	>=media-libs/libjxl-0.8.0:=
 "
 CDEPEND="
 	!net-im/telegram-desktop-bin
@@ -47,7 +47,6 @@ CDEPEND="
 	~media-libs/tg_owt-0_pre20230921:=[screencast=,X=]
 	media-video/ffmpeg:=[opus,vpx]
 	sys-libs/zlib:=[minizip]
-	virtual/opengl
 	!enchant? ( >=app-text/hunspell-1.7:= )
 	enchant? ( app-text/enchant:= )
 	!qt6? (
@@ -87,6 +86,7 @@ RDEPEND="${CDEPEND}
 DEPEND="${CDEPEND}
 	>=dev-cpp/cppgir-0_p20240110
 	>=dev-cpp/ms-gsl-4
+	dev-cpp/expected-lite
 	dev-cpp/range-v3
 "
 BDEPEND="
