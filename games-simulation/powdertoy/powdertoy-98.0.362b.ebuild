@@ -25,17 +25,13 @@ DEPEND="lua? ( ${LUA_DEPS} )
 	media-libs/libpng:0/16
 	media-libs/libsdl2
 	curl? ( net-misc/curl )
-	fftw? ( sci-libs/fftw )
+	sci-libs/fftw
 	app-arch/bzip2
 	dev-libs/jsoncpp"
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-IUSE="lto +lua +fftw +curl cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3"
-
-PATCHES=(
-	"${FILESDIR}/powdertoy-97.0.352-gcc-13.patch"
-	)
+IUSE="lto +lua +curl cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3"
 
 S="$WORKDIR/${MY_PN}-${PV}"
 
@@ -50,7 +46,6 @@ src_configure() {
 
 	local emesonargs=(
 		$(meson_use lto b_lto)
-		$(meson_use fftw gravfft)
 		$(meson_use curl http)
 		-Drender_icons_with_inkscape=disabled
 		-Dworkaround_noncpp_lua=true # I don't know if this breaks things
