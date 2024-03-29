@@ -10,6 +10,5 @@
 <use>
 <flag name="lto">Enable Link Time Optimization, runs smoother with more particles</flag>
 <flag name="curl">Enable online functionality using libcurl</flag>
-<flag name="fftw">Use Fast Fourier Transforms for a huge speedup in gravity computation</flag>
 </use>
 </pkgmetadata>
