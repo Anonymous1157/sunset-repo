@@ -13,8 +13,6 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RESTRICT="mirror"
-
 IUSE="nettle +openssl mbedtls caja nautilus nemo thunar"
 
 DEPEND="dev-libs/libgcrypt
@@ -29,6 +27,8 @@ DEPEND="dev-libs/libgcrypt
 	nemo? ( gnome-extra/nemo )
 	thunar? ( xfce-base/thunar )"
 RDEPEND="${DEPEND}"
+
+RESTRICT="mirror"
 
 src_prepare() {
 	default

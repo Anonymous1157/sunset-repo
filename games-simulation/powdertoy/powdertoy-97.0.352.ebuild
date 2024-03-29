@@ -15,10 +15,10 @@ DESCRIPTION="A desktop version of the classic 'falling sand' physics sandbox"
 HOMEPAGE="https://powdertoy.co.uk/"
 SRC_URI="https://github.com/${MY_PN}/${MY_PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
+S="$WORKDIR/${MY_PN}-${PV}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-RESTRICT="mirror"
 
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
 DEPEND="lua? ( ${LUA_DEPS} )
@@ -37,7 +37,7 @@ PATCHES=(
 	"${FILESDIR}/powdertoy-97.0.352-gcc-13.patch"
 	)
 
-S="$WORKDIR/${MY_PN}-${PV}"
+RESTRICT="mirror"
 
 src_configure() {
 	local SSEFLAG=none

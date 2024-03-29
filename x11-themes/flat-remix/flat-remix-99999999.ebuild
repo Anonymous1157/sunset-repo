@@ -18,9 +18,9 @@ else
 	EGIT_REPO_URI="${HOMEPAGE}.git"
 fi
 
-RESTRICT="mirror"
 LICENSE="GPL-3"
 SLOT="0"
+RESTRICT="mirror"
 
 src_prepare() {
 	# Partial deduplication, reduces install size by more than half

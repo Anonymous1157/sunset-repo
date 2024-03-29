@@ -17,9 +17,9 @@ else
 	EGIT_REPO_URI="${HOMEPAGE}.git"
 fi
 
-RESTRICT="mirror"
 LICENSE="BSD"
 SLOT="0"
+RESTRICT="mirror"
 
 BDEPEND="media-gfx/icon-slicer"
 

@@ -18,9 +18,9 @@ else
 	EGIT_REPO_URI="https://git.kernel.org/pub/scm/utils/ieee1394/${PN}.git"
 fi
 
-RESTRICT="mirror"
 LICENSE="GPL-2"
 SLOT="0"
+RESTRICT="mirror"
 
 DEPEND="sys-kernel/linux-headers"
 

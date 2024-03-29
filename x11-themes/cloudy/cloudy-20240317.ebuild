@@ -12,11 +12,11 @@ MY_PN="Cloudy"
 
 EGIT_COMMIT="d66960f599eed7acf2dfa5d678afed76e8bfa9ec"
 SRC_URI="https://github.com/i-mint/Cloudy/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64 ~x86"
 S="${WORKDIR}/${MY_PN}-${EGIT_COMMIT}"
 
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="x11-themes/gtk-engines-adwaita
 x11-themes/gtk-engines-murrine"

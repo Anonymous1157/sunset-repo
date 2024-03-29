@@ -16,9 +16,9 @@ else
 	EGIT_REPO_URI="${HOMEPAGE}.git"
 fi
 
-RESTRICT="mirror"
 LICENSE="GPL-3 MIT" # Some files are from unknown source and might be dirty but I don't know how to specify that
 SLOT="0"
+RESTRICT="mirror"
 
 BDEPEND="virtual/imagemagick-tools[png]"
 

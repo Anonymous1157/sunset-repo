@@ -11,6 +11,7 @@ FEDORA_PN=hfsplus-tools
 DESCRIPTION="HFS and HFS+ utils ported from OSX, supplies mkfs and fsck"
 HOMEPAGE="http://opendarwin.org"
 SRC_URI="https://src.fedoraproject.org/repo/pkgs/${FEDORA_PN}/${PN}-${MY_PV}.tar.gz/0435afc389b919027b69616ad1b05709/${PN}-${MY_PV}.tar.gz"
+S="${WORKDIR}/${PN}-${MY_PV}"
 LICENSE="APSL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -23,8 +24,6 @@ PATCHES=(
 "${FILESDIR}/${FEDORA_PN}-no-blocks.patch"
 "${FILESDIR}/${FEDORA_PN}-sysctl.patch"
 )
-
-S="${WORKDIR}/${PN}-${MY_PV}"
 
 src_install() {
 	into /

@@ -8,4 +8,4 @@ LICENSE=GPL-3
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/mdomlop/retrosmart-x11-cursors/archive/3.0.tar.gz -> retrosmart-x11-cursors-3.0.tar.gz
-_md5_=73b6e68dab726c6f2b39e373f2d601a6
+_md5_=4bd1e009615104bd291139caed927ed0

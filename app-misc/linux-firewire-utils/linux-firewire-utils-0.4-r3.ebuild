@@ -20,9 +20,9 @@ else
 	EGIT_REPO_URI="${HOMEPAGE}.git"
 fi
 
-RESTRICT="mirror"
 LICENSE="GPL-2"
 SLOT="0"
+RESTRICT="mirror"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
