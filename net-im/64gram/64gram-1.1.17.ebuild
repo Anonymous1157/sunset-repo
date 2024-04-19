@@ -1,7 +1,7 @@
 # Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Source: =net-im/telegram-desktop-4.15.0-r1 from default Gentoo overlay
+# Source: =net-im/telegram-desktop-4.16.6 from default Gentoo overlay
 
 EAPI=8
 
@@ -19,7 +19,7 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv"
-IUSE="dbus enchant +fonts screencast qt6 qt6-imageformats wayland webkit +X"
+IUSE="dbus enchant +fonts +jemalloc screencast qt6 qt6-imageformats wayland webkit +X"
 REQUIRED_USE="
 	qt6-imageformats? ( qt6 )
 "
@@ -49,6 +49,7 @@ CDEPEND="
 	sys-libs/zlib:=[minizip]
 	!enchant? ( >=app-text/hunspell-1.7:= )
 	enchant? ( app-text/enchant:= )
+	jemalloc? ( dev-libs/jemalloc:= )
 	!qt6? (
 		>=dev-qt/qtcore-5.15:5=
 		>=dev-qt/qtgui-5.15:5=[dbus?,jpeg,png,wayland?,X?]
@@ -81,10 +82,10 @@ CDEPEND="
 	)
 "
 RDEPEND="${CDEPEND}
-	webkit? ( net-libs/webkit-gtk:4.1 net-libs/webkit-gtk:6 )
+	webkit? ( || ( net-libs/webkit-gtk:4.1 net-libs/webkit-gtk:6 ) )
 "
 DEPEND="${CDEPEND}
-	>=dev-cpp/cppgir-0_p20240110
+	>=dev-cpp/cppgir-2.0_p20240315
 	>=dev-cpp/ms-gsl-4
 	dev-cpp/expected-lite
 	dev-cpp/range-v3
@@ -92,7 +93,7 @@ DEPEND="${CDEPEND}
 BDEPEND="
 	${PYTHON_DEPS}
 	>=dev-build/cmake-3.16
-	>=dev-cpp/cppgir-0_p20230926
+	>=dev-cpp/cppgir-2.0_p20240315
 	dev-util/gdbus-codegen
 	virtual/pkgconfig
 	wayland? ( dev-util/wayland-scanner )
@@ -102,8 +103,8 @@ BDEPEND="
 # changed from Unix to DOS. Patches are functionally identical to the ones
 # from net-im/telegram-desktop but had to be regenerated.
 PATCHES=(
+	"${FILESDIR}/64gram-1.0.88-jemalloc-only-telegram.patch"
 	"${FILESDIR}/64gram-1.1.5-system-cppgir.patch"
-	"${FILESDIR}/64gram-1.1.1-qt_compare.patch"
 )
 
 pkg_pretend() {
@@ -188,6 +189,7 @@ src_configure() {
 
 		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex !X)
 		-DDESKTOP_APP_DISABLE_WAYLAND_INTEGRATION=$(usex !wayland)
+		-DDESKTOP_APP_DISABLE_JEMALLOC=$(usex !jemalloc)
 		## Enables enchant and disables hunspell
 		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)
 		## Use system fonts instead of bundled ones
@@ -224,6 +226,13 @@ pkg_postinst() {
 	xdg_pkg_postinst
 	if ! use X && ! use screencast; then
 		ewarn "both the 'X' and 'screencast' USE flags are disabled, screen sharing won't work!"
+		ewarn
+	fi
+	if ! use jemalloc && use elibc_glibc; then
+		# https://github.com/telegramdesktop/tdesktop/issues/16084
+		# https://github.com/desktop-app/cmake_helpers/pull/91#issuecomment-881788003
+		ewarn "Disabling USE=jemalloc on glibc systems may cause very high RAM usage!"
+		ewarn "Do NOT report issues about RAM usage without enabling this flag first."
 		ewarn
 	fi
 	if use wayland && ! use qt6; then
