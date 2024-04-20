@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Source: =mpv-plugin/mpv_thumbnail_script-0.5.3 from guru overlay -->
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>sunsetsergal@gmail.com</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">marzzzello/mpv_thumbnail_script</remote-id>
+	</upstream>
+	<use>
+		<flag name="autoload">Load plugin automatically</flag>
+	</use>
+</pkgmetadata>
