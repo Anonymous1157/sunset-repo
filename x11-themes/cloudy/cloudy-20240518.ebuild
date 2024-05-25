@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/i-mint/Cloudy"
 
 MY_PN="Cloudy"
 
-EGIT_COMMIT="6afb2347604dd9ccdaaca61629bb5387a1185f67"
+EGIT_COMMIT="4b160fa3a971f009431f6fdc42c04e7821757db3"
 SRC_URI="https://github.com/i-mint/Cloudy/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MY_PN}-${EGIT_COMMIT}"
 
