@@ -1,11 +1,11 @@
 # Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Source: =net-im/telegram-desktop-5.0.1-r1 from default Gentoo overlay
+# Source: =net-im/telegram-desktop-5.1.5 from default Gentoo overlay
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit xdg cmake python-any-r1 optfeature flag-o-matic edos2unix
 
