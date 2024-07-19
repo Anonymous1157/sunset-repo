@@ -4,7 +4,7 @@ Hi! I use Gentoo. Sometimes I change official packages to fix bugs, install newe
 
 ## Adding this overlay to your system
 
-**UPDATE**: This repo has been added to the global list of Gentoo repositories! You can add it automagically with [eselect-repository](https://wiki.gentoo.org/wiki/Eselect/Repository):
+You can add it automagically with [eselect-repository](https://wiki.gentoo.org/wiki/Eselect/Repository):
 
 ```
 eselect repository enable sunset-repo
@@ -15,4 +15,6 @@ You can still add it manually if you want to:
 ```
 eselect repository add sunset-repo git https://github.com/Anonymous1157/sunset-repo.git
 ```
+
+*Note that this repo is now being mirrored* at https://github.com/gentoo-mirror/sunset-repo so these two methods do slightly different things. It's not a big deal in practice.
 
