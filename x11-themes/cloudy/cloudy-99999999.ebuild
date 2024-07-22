@@ -15,9 +15,9 @@ inherit git-r3
 
 LICENSE="GPL-3"
 SLOT="0"
+IUSE="+gtk2"
 
-RDEPEND="x11-themes/gtk-engines-adwaita
-x11-themes/gtk-engines-murrine"
+RDEPEND="gtk2? ( x11-themes/gtk-engines-adwaita x11-themes/gtk-engines-murrine )"
 
 RESTRICT="mirror"
 
