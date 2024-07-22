@@ -11,9 +11,9 @@ S="${WORKDIR}/${MY_DIR}"
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="+gtk2"
 
-RDEPEND="x11-themes/gtk-engines-adwaita
-x11-themes/gtk-engines-murrine"
+RDEPEND="gtk2? ( x11-themes/gtk-engines-adwaita x11-themes/gtk-engines-murrine )"
 
 MY_DIR="Gnome-Xpro"
 RESTRICT="mirror"
