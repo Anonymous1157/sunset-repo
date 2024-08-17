@@ -5,14 +5,13 @@
 
 EAPI=7
 
-inherit git-r3
-
 DESCRIPTION="An old-fashioned look X11 cursor theme"
 HOMEPAGE="https://github.com/mdomlop/retrosmart-x11-cursors"
-EGIT_REPO_URI="${HOMEPAGE}.git"
+SRC_URI="https://github.com/mdomlop/retrosmart-x11-cursors/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 RESTRICT="mirror"
 
 BDEPEND="virtual/imagemagick-tools[png]
