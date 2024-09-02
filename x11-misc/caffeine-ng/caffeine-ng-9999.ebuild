@@ -7,7 +7,6 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{9,10,11,12} )
-#DISTUTILS_USE_PEP517=no
 
 inherit gnome2 meson python-r1
 
@@ -44,7 +43,7 @@ DEPEND="
 		dev-python/setuptools-scm[${PYTHON_USEDEP}]
 		dev-python/pulsectl[${PYTHON_USEDEP}]
 	')
-	dev-libs/libappindicator:3[introspection]
+	dev-libs/libayatana-appindicator
 	x11-libs/gtk+:3
 	x11-libs/libnotify[introspection]
 "
