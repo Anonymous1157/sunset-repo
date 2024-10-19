@@ -30,6 +30,10 @@ RDEPEND="${DEPEND}"
 
 RESTRICT="mirror"
 
+PATCHES=(
+	"${FILESDIR}/fix-msgfmt-keyword-use-space.patch"
+)
+
 src_prepare() {
 	default
 	eautoreconf
