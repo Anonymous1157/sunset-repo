@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Source: =x11-misc/gpaste-3.42.5 from default Gentoo overlay -->
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+        <email>sunsetsergal@gmail.com</email>
+    </maintainer>
+	<use>
+		<flag name="gnome">Enable proper gnome support and
+			enable gnome shell extension.</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">Keruspe/GPaste</remote-id>
+	</upstream>
+</pkgmetadata>
