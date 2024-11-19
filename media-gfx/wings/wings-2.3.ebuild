@@ -32,6 +32,12 @@ src_prepare() {
 	sed -i -e 's#DEPS += libigl eigen##g' $(find -name Makefile) || die
 	sed -i -e 's#../_deps/eigen#/usr/include/eigen3#g' $(find -name Makefile) || die
 	sed -i -e 's#../_deps/libigl/include#/usr/include/igl#g' $(find -name Makefile) || die
+	# https://bugs.gentoo.org/927356#c12
+	# fix excess quotes
+	sed -i -e '/material[0-9]/ s/""//g' -i "plugins_src/import_export/wpc_yafaray.erl" || die
+	# quote reserved word: maybe
+	sed -i -Ee 's&\bmaybe\b&'\''maybe'\''&' -i "src/wings_draw.erl" || die
+	sed -i -Ee '/invalidate/s&\bmaybe\b&'\''maybe'\''&;s&'\'\''&'\''&g' -i "src/wings_proxy.erl" || die
 	default
 }
 
