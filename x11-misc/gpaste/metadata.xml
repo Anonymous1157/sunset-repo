@@ -3,8 +3,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-        <email>sunsetsergal@gmail.com</email>
-    </maintainer>
+		<email>sunsetsergal@gmail.com</email>
+	</maintainer>
 	<use>
 		<flag name="gnome">Enable proper gnome support and
 			enable gnome shell extension.</flag>

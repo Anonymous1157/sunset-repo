@@ -13,6 +13,8 @@ DESCRIPTION="Clipboard management system"
 HOMEPAGE="https://github.com/Keruspe/GPaste"
 SRC_URI="https://github.com/Keruspe/GPaste/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/GPaste-${PV}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -59,8 +61,6 @@ RDEPEND="${DEPEND}
 		sys-apps/systemd
 	)
 "
-
-S="${WORKDIR}/GPaste-${PV}"
 
 src_prepare() {
 	use vala && vala_src_prepare
