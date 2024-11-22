@@ -3,7 +3,7 @@
 
 # Source: Written from scratch for sunset-repo overlay
 
-EAPI=7
+EAPI=8
 
 inherit git-r3
 
@@ -18,8 +18,11 @@ RESTRICT="mirror"
 BDEPEND="virtual/imagemagick-tools[png]
 x11-apps/xcursorgen"
 
-src_prepare() {
+src_install() {
 	default
-	# Use the Gentoo cursor theme directory.
-	sed -e 's_share/icons_share/cursors/xorg-x11_g' -i Makefile
+	rm -rf "${D}/usr/share/icons/share"
+	for i in $(ls "${D}/usr/share/icons/")
+	do
+		dosym -r "/usr/share/icons/${i}" "/usr/share/cursors/xorg-x11/${i}"
+	done
 }
