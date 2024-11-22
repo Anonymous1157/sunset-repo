@@ -3,7 +3,7 @@
 
 # Source: Written from scratch for sunset-repo overlay
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="OpenZone mouse cursor theme for X11 and Wayland"
 HOMEPAGE="https://github.com/ducakar/openzone-cursors"
@@ -25,6 +25,14 @@ BDEPEND="media-gfx/icon-slicer"
 
 src_prepare() {
 	default
-	# Use the Gentoo cursor theme directory. Also works around incorrect usage of DESTDIR to mean PREFIX.
-	sed -e 's_/share/icons_/usr/share/cursors/xorg-x11_g' -i Makefile
+	# Work around incorrect usage of DESTDIR to mean PREFIX
+	sed -e 's_/share/icons_/usr/share/icons_g' -i Makefile
+}
+
+src_install() {
+	default
+	for i in $(ls "${D}/usr/share/icons/")
+	do
+		dosym -r "/usr/share/icons/${i}" "/usr/share/cursors/xorg-x11/${i}"
+	done
 }
