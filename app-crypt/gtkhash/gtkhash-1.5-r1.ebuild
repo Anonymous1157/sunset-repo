@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="nettle +openssl mbedtls caja nautilus nemo thunar"
+IUSE="nettle +openssl mbedtls caja nemo thunar"
 
 DEPEND="dev-libs/libgcrypt
 	app-crypt/libb2
@@ -23,7 +23,6 @@ DEPEND="dev-libs/libgcrypt
 	openssl? ( dev-libs/openssl )
 	mbedtls? ( net-libs/mbedtls )
 	caja? ( mate-base/caja )
-	nautilus? ( gnome-base/nautilus )
 	nemo? ( gnome-extra/nemo )
 	thunar? ( xfce-base/thunar )"
 RDEPEND="${DEPEND}"
@@ -45,7 +44,7 @@ src_configure() {
 		$(use_enable openssl libcrypto)
 		$(use_enable mbedtls)
 		$(use_enable caja)
-		$(use_enable nautilus)
+		--disable-nautilus # Extension does not work with GTK4 Nautilus
 		$(use_enable nemo)
 		$(use_enable thunar)
 		--enable-linux-crypto # Probably should NOT assume we're running on Linux...
