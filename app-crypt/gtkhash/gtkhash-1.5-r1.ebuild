@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools
+inherit meson
 
 DESCRIPTION="A cross-platform desktop utility for computing message digests or checksums"
 HOMEPAGE="https://gtkhash.org/"
@@ -33,22 +33,17 @@ PATCHES=(
 	"${FILESDIR}/fix-msgfmt-keyword-use-space.patch"
 )
 
-src_prepare() {
-	default
-	eautoreconf
-}
-
 src_configure() {
-	local myeconfargs=(
-		$(use_enable nettle)
-		$(use_enable openssl libcrypto)
-		$(use_enable mbedtls)
-		$(use_enable caja)
-		--disable-nautilus # Extension does not work with GTK4 Nautilus
-		$(use_enable nemo)
-		$(use_enable thunar)
-		--enable-linux-crypto # Probably should NOT assume we're running on Linux...
-		--enable-glib-checksums # Indirect dependency of GTK3 so why not
+	local emesonargs=(
+		$(meson_use nettle)
+		$(meson_use openssl libcrypto)
+		$(meson_use mbedtls)
+		$(meson_use caja build-caja)
+		-Dbuild-nautilus=false # Extension does not work with GTK4 Nautilus
+		$(meson_use nemo build-nemo)
+		$(meson_use thunar build-thunar)
+		-Dlinux-crypto=true # Probably should NOT assume we're running on Linux...
+		-Dglib-checksums=true # Indirect dependency of GTK3 so why not
 	)
-	econf "${myeconfargs[@]}"
+	meson_src_configure
 }
