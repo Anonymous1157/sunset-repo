@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 DEPEND="dev-libs/openssl:="
 RDEPEND="${DEPEND}"
-BDEPEND="sys-devel/clang"
+BDEPEND="llvm-core/clang"
 
 PATCHES=(
 "${FILESDIR}/${FEDORA_PN}-learn-to-stdarg.patch"

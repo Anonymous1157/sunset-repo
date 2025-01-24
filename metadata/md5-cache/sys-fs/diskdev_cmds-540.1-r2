@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/clang
+BDEPEND=llvm-core/clang
 DEFINED_PHASES=install
 DEPEND=dev-libs/openssl:=
 DESCRIPTION=HFS and HFS+ utils ported from OSX, supplies mkfs and fsck
@@ -9,4 +9,4 @@ LICENSE=APSL-2
 RDEPEND=dev-libs/openssl:=
 SLOT=0
 SRC_URI=https://src.fedoraproject.org/repo/pkgs/hfsplus-tools/diskdev_cmds-540.1.linux3.tar.gz/0435afc389b919027b69616ad1b05709/diskdev_cmds-540.1.linux3.tar.gz
-_md5_=d54ce3c37160e0031577816dc59aa8cd
+_md5_=ec7339f8e6032754498e4b770adef7cb
