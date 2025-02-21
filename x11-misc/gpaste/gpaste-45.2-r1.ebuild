@@ -62,6 +62,10 @@ RDEPEND="${DEPEND}
 	)
 "
 
+PATCHES=(
+	"${FILESDIR}/gpaste-45.2-gnome-shell-support-48.patch"
+)
+
 src_prepare() {
 	use vala && vala_src_prepare
 	default
