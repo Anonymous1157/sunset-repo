@@ -1,6 +1,8 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Source: =games-simulation/simutrans-124.2.1 from default Gentoo overlay
+
 EAPI=8
 
 inherit autotools desktop flag-o-matic toolchain-funcs xdg

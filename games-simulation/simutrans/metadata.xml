@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Source: =games-simulation/simutrans-124.2.1 from default Gentoo overlay -->
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>sunsetsergal@gmail.com</email>
+	</maintainer>
 	<upstream>
 		<remote-id type="sourceforge">simutrans</remote-id>
 		<remote-id type="github">aburch/simutrans</remote-id>
