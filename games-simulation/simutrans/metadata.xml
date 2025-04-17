@@ -10,7 +10,8 @@
 		<remote-id type="github">aburch/simutrans</remote-id>
 	</upstream>
 	<use>
-		<flag name="midi">support for background MIDI music via <pkg>media-sound/fluidsynth</pkg></flag>
+		<flag name="midi">Support for background MIDI music via <pkg>media-sound/fluidsynth</pkg></flag>
+		<flag name="tools">Build makeobj to compile new paksets, and nettool to interact with dedicated servers</flag>
 	</use>
 	<longdescription lang="en">
 		Simutrans is a freeware and open-source transportation simulator. Your
