@@ -1,6 +1,6 @@
 BDEPEND=>=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install test
-DEPEND=dev-libs/libgcrypt app-crypt/libb2 x11-libs/gtk+:3 sys-libs/zlib nettle? ( dev-libs/nettle ) openssl? ( dev-libs/openssl ) mbedtls? ( net-libs/mbedtls ) caja? ( mate-base/caja ) nemo? ( gnome-extra/nemo ) thunar? ( xfce-base/thunar )
+DEPEND=dev-libs/libgcrypt app-crypt/libb2 x11-libs/gtk+:3 sys-libs/zlib nettle? ( dev-libs/nettle ) openssl? ( dev-libs/openssl ) mbedtls? ( net-libs/mbedtls:0 ) caja? ( mate-base/caja ) nemo? ( gnome-extra/nemo ) thunar? ( xfce-base/thunar )
 DESCRIPTION=A cross-platform desktop utility for computing message digests or checksums
 EAPI=8
 HOMEPAGE=https://gtkhash.org/
@@ -8,9 +8,9 @@ INHERIT=meson
 IUSE=nettle +openssl mbedtls caja nemo thunar
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=dev-libs/libgcrypt app-crypt/libb2 x11-libs/gtk+:3 sys-libs/zlib nettle? ( dev-libs/nettle ) openssl? ( dev-libs/openssl ) mbedtls? ( net-libs/mbedtls ) caja? ( mate-base/caja ) nemo? ( gnome-extra/nemo ) thunar? ( xfce-base/thunar )
+RDEPEND=dev-libs/libgcrypt app-crypt/libb2 x11-libs/gtk+:3 sys-libs/zlib nettle? ( dev-libs/nettle ) openssl? ( dev-libs/openssl ) mbedtls? ( net-libs/mbedtls:0 ) caja? ( mate-base/caja ) nemo? ( gnome-extra/nemo ) thunar? ( xfce-base/thunar )
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/tristanheaven/gtkhash/archive/refs/tags/v1.5.tar.gz -> gtkhash-1.5.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b043191f3a82642545249acea7318e03	meson	99466844dd8d4fcfb07578a76f5a9922
-_md5_=b159e1c3847fc182d36d3b8878a498d6
+_md5_=b2e9435ae64ae94a27bb0c57f32df113

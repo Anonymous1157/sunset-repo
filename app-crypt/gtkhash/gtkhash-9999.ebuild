@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://github.com/tristanheaven/${PN}.git"
 LICENSE="GPL-2"
 SLOT="0"
 
-IUSE="nettle +openssl mbedtls caja nautilus nemo thunar"
+IUSE="nettle +openssl mbedtls caja nemo thunar"
 
 DEPEND="dev-libs/libgcrypt
 	app-crypt/libb2
@@ -20,9 +20,8 @@ DEPEND="dev-libs/libgcrypt
 	sys-libs/zlib
 	nettle? ( dev-libs/nettle )
 	openssl? ( dev-libs/openssl )
-	mbedtls? ( net-libs/mbedtls )
+	mbedtls? ( net-libs/mbedtls:0 )
 	caja? ( mate-base/caja )
-	nautilus? ( gnome-base/nautilus )
 	nemo? ( gnome-extra/nemo )
 	thunar? ( xfce-base/thunar )"
 RDEPEND="${DEPEND}"
@@ -33,7 +32,7 @@ src_configure() {
 		$(meson_use openssl libcrypto)
 		$(meson_use mbedtls)
 		$(meson_use caja build-caja)
-		$(meson_use nautilus build-nautilus)
+		-Dbuild-nautilus=false # Extension does not work with GTK4 Nautilus
 		$(meson_use nemo build-nemo)
 		$(meson_use thunar build-thunar)
 		-Dlinux-crypto=true # Probably should NOT assume we're running on Linux...

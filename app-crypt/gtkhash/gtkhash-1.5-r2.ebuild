@@ -21,7 +21,7 @@ DEPEND="dev-libs/libgcrypt
 	sys-libs/zlib
 	nettle? ( dev-libs/nettle )
 	openssl? ( dev-libs/openssl )
-	mbedtls? ( net-libs/mbedtls )
+	mbedtls? ( net-libs/mbedtls:0 )
 	caja? ( mate-base/caja )
 	nemo? ( gnome-extra/nemo )
 	thunar? ( xfce-base/thunar )"

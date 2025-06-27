@@ -10,7 +10,7 @@
 	</upstream>
 	<use>
 		<flag name="caja">Build the checksums plugin for use inside Caja from MATE</flag>
-		<flag name="nautilus">Build the checksums plugin for use inside Nautilus from Gnome</flag>
+		<!-- <flag name="nautilus">Build the checksums plugin for use inside Nautilus from Gnome</flag> -->
 		<flag name="nemo">Build the checksums plugin for use inside Nemo from Cinnamon</flag>
 		<flag name="thunar">Build the checksums plugin for use inside Thunar from XFCE</flag>
 		<flag name="openssl">Support calculating checksums with libcrypto from dev-libs/openssl</flag>
