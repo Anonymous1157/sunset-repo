@@ -17,7 +17,7 @@ IUSE="nettle +openssl mbedtls caja nemo thunar"
 DEPEND="dev-libs/libgcrypt
 	app-crypt/libb2
 	x11-libs/gtk+:3
-	sys-libs/zlib
+	virtual/zlib:=
 	nettle? ( dev-libs/nettle )
 	openssl? ( dev-libs/openssl )
 	mbedtls? ( net-libs/mbedtls:0 )
