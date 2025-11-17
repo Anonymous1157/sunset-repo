@@ -21,7 +21,7 @@ DEPEND="
 	>=media-video/ffmpeg-4.2.4
 	dev-libs/libfmt
 	dev-libs/inih
-	sys-libs/zlib
+	virtual/zlib:=
 "
 
 RESTRICT="mirror"
