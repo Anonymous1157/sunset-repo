@@ -1,0 +1,61 @@
+diff '--color=auto' -rU3 calc-2.15.1.1-old/Makefile.target calc-2.15.1.1/Makefile.target
+--- calc-2.15.1.1-old/Makefile.target	2024-07-12 00:58:22.000000000 -0400
++++ calc-2.15.1.1/Makefile.target	2025-11-17 13:01:49.702986894 -0500
+@@ -111,9 +111,6 @@
+ # target specific library parameters
+ #
+ CC_SHARE= -fPIC
+-DEFAULT_LIB_INSTALL_PATH= ${PWD}:/lib:/usr/lib:${LIBDIR}:${PREFIX}/lib
+-LD_SHARE= "-Wl,-rpath,${DEFAULT_LIB_INSTALL_PATH}" \
+-    "-Wl,-rpath-link,${DEFAULT_LIB_INSTALL_PATH}"
+ LIBCALC_SHLIB= -shared "-Wl,-soname,libcalc${LIB_EXT_VERSION}"
+ LIBCUSTCALC_SHLIB= -shared "-Wl,-soname,libcustcalc${LIB_EXT_VERSION}"
+ 
+@@ -162,7 +159,6 @@
+ # target specific library parameters
+ #
+ CC_SHARE= -fPIC
+-DEFAULT_LIB_INSTALL_PATH= ${PWD}:${LIBDIR}:${PREFIX}/lib
+ LD_SHARE= ${ARCH_CFLAGS}
+ LIBCALC_SHLIB= -dynamiclib -undefined dynamic_lookup \
+     -install_name ${LIBDIR}/libcalc${LIB_EXT_VERSION} \
+@@ -224,9 +220,6 @@
+ # target specific library parameters
+ #
+ CC_SHARE= -fPIC
+-DEFAULT_LIB_INSTALL_PATH= ${PWD}:/lib:/usr/lib:${LIBDIR}:${PREFIX}/lib
+-LD_SHARE= "-Wl,-rpath,${DEFAULT_LIB_INSTALL_PATH}" \
+-    "-Wl,-rpath-link,${DEFAULT_LIB_INSTALL_PATH}"
+ LIBCALC_SHLIB= -shared "-Wl,-soname,libcalc${LIB_EXT_VERSION}"
+ LIBCUSTCALC_SHLIB= -shared "-Wl,-soname,libcustcalc${LIB_EXT_VERSION}"
+ 
+@@ -269,9 +262,6 @@
+ # default build type for this target
+ #
+ CC_SHARE= -fPIC
+-DEFAULT_LIB_INSTALL_PATH= ${PWD}:/lib:/usr/lib:${LIBDIR}:${PREFIX}/lib
+-LD_SHARE= "-Wl,-rpath,${DEFAULT_LIB_INSTALL_PATH}" \
+-    "-Wl,-rpath-link,${DEFAULT_LIB_INSTALL_PATH}"
+ LIBCALC_SHLIB= -shared "-Wl,-soname,libcalc${LIB_EXT_VERSION}"
+ LIBCUSTCALC_SHLIB= -shared "-Wl,-soname,libcustcalc${LIB_EXT_VERSION}"
+ 
+@@ -312,9 +302,6 @@
+ # target specific library parameters
+ #
+ CC_SHARE= -fPIC
+-DEFAULT_LIB_INSTALL_PATH= ${PWD}:/lib:/usr/lib:${LIBDIR}:${PREFIX}/lib
+-LD_SHARE= "-Wl,-rpath,${DEFAULT_LIB_INSTALL_PATH}" \
+-    "-Wl,-rpath-link,${DEFAULT_LIB_INSTALL_PATH}"
+ LIBCALC_SHLIB= -shared "-Wl,-soname,libcalc${LIB_EXT_VERSION}"
+ LIBCUSTCALC_SHLIB= -shared "-Wl,-soname,libcustcalc${LIB_EXT_VERSION}"
+ 
+@@ -357,9 +344,6 @@
+ # target specific library parameters
+ #
+ CC_SHARE= -fPIC
+-DEFAULT_LIB_INSTALL_PATH= ${PWD}:/lib:/usr/lib:${LIBDIR}:${PREFIX}/lib
+-LD_SHARE= "-Wl,-rpath,${DEFAULT_LIB_INSTALL_PATH}" \
+-    "-Wl,-rpath-link,${DEFAULT_LIB_INSTALL_PATH}"
+ LIBCALC_SHLIB= -shared "-Wl,-soname,libcalc${LIB_EXT_VERSION}"
+ LIBCUSTCALC_SHLIB= -shared "-Wl,-soname,libcustcalc${LIB_EXT_VERSION}"
+ 

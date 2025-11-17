@@ -11,8 +11,8 @@ DESCRIPTION="Arbitrary precision C-like arithmetic system"
 HOMEPAGE="http://www.isthe.com/chongo/tech/comp/calc/"
 SRC_URI="http://www.isthe.com/chongo/src/calc/${P}.tar.bz2"
 
-SLOT="0"
 LICENSE="LGPL-2"
+SLOT="0"
 KEYWORDS="~alpha amd64 ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 
 RDEPEND="
@@ -22,8 +22,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.13.0.1-RPATH.patch
-	"${FILESDIR}"/${PN}-2.13.0.1-respect-LDFLAGS.patch
+	"${FILESDIR}"/${PN}-2.15.1.1-RPATH.patch
 )
 
 src_prepare() {
@@ -37,7 +36,8 @@ src_compile() {
 	# parallel compilation hard to fix. better to leave upstream.
 	emake -j1 \
 		CC="$(tc-getCC)" \
-		DEBUG="${CFLAGS}" \
+		LCC="$(tc-getCC)" \
+		DEBUG="${CFLAGS} ${CPPFLAGS}" \
 		LDFLAGS="${LDFLAGS}" \
 		EXTRA_LDFLAGS="${LDFLAGS}" \
 		CALCPAGER="${PAGER}" \
