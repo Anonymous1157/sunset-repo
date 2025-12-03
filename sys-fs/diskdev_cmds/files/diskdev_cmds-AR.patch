@@ -1,0 +1,12 @@
+diff '--color=auto' -rU3 diskdev_cmds-540.1.linux3.old/fsck_hfs.tproj/dfalib/Makefile.lnx diskdev_cmds-540.1.linux3/fsck_hfs.tproj/dfalib/Makefile.lnx
+--- diskdev_cmds-540.1.linux3.old/fsck_hfs.tproj/dfalib/Makefile.lnx	2011-11-19 09:14:27.000000000 -0500
++++ diskdev_cmds-540.1.linux3/fsck_hfs.tproj/dfalib/Makefile.lnx	2025-12-03 00:38:58.412212670 -0500
+@@ -9,7 +9,7 @@
+ OFILES = $(CFILES:.c=.o)
+ 
+ libdfa.a: $(OFILES)
+-	ar rc $@ $?
++	$(AR) rc $@ $?
+ 
+ clean:
+ 	$(RM) $(OFILES) libdfa.a
