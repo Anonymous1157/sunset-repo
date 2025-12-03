@@ -3,7 +3,7 @@
 
 # Source: =sci-mathematics/calc-2.13.0.1 from default Gentoo overlay
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs
 
