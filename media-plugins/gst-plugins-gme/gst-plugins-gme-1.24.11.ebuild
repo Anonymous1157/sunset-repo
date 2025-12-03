@@ -3,7 +3,7 @@
 
 # Source: =media-plugins/gst-plugins-mpg123-1.22.3-r1 from default Gentoo overlay
 
-EAPI=7
+EAPI=8
 GST_ORG_MODULE=gst-plugins-bad
 
 inherit gstreamer-meson
