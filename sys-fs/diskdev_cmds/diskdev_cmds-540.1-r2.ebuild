@@ -3,7 +3,7 @@
 
 # Source: =sys-fs/diskdev_cmds-332.14_p1 from default Gentoo overlay
 
-EAPI=7
+EAPI=8
 
 MY_PV=${PV}.linux3
 FEDORA_PN=hfsplus-tools
