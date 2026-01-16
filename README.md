@@ -16,5 +16,3 @@ You can still add it manually if you want to:
 eselect repository add sunset-repo git https://github.com/Anonymous1157/sunset-repo.git
 ```
 
-*Note that this repo is now being mirrored* at https://github.com/gentoo-mirror/sunset-repo so these two methods do slightly different things. It's not a big deal in practice.
-
