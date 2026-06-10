@@ -31,16 +31,11 @@ DEPEND="lua? ( ${LUA_DEPS} )
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-IUSE="lto +lua +curl cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3"
+IUSE="lto +lua +curl"
 
 RESTRICT="mirror"
 
 src_configure() {
-	local SSEFLAG=none
-	use cpu_flags_x86_sse && SSEFLAG=sse
-	use cpu_flags_x86_sse2 && SSEFLAG=sse2
-	use cpu_flags_x86_sse3 && SSEFLAG=sse3
-
 	local LUAFLAG=none
 	use lua && LUAFLAG=$ELUA
 
@@ -48,9 +43,11 @@ src_configure() {
 		$(meson_use lto b_lto)
 		$(meson_use curl http)
 		-Drender_icons_with_inkscape=disabled
-		-Dworkaround_noncpp_lua=true # I don't know if this breaks things
+		-Dworkaround_noncpp_lua=true
 		-Dlua=$LUAFLAG
-		-Dx86_sse=$SSEFLAG
+		# This is only used to append -msse, -msse2... and changes no codepaths
+		# Assume Portage user set CXXFLAGS appropriately
+		-Dx86_sse=none
 	)
 	meson_src_configure
 }
@@ -58,6 +55,7 @@ src_configure() {
 src_install() {
 	# Project does not have a working meson install target
 	newbin "${BUILD_DIR}/powder" ${PN}
+	newicon -s scalable resources/icon_exe.svg ${PN}.svg
 	newicon -s 256 resources/generated_icons/icon_exe.png ${PN}.png
 	newicon -s 16 resources/generated_icons/icon_exe_16.png ${PN}.png
 	newicon -s 32 resources/generated_icons/icon_exe_32.png ${PN}.png

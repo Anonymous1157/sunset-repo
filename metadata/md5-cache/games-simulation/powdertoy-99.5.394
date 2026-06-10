@@ -5,7 +5,7 @@ DESCRIPTION=A desktop version of the classic 'falling sand' physics sandbox
 EAPI=8
 HOMEPAGE=https://powdertoy.co.uk/
 INHERIT=meson lua-single desktop
-IUSE=lto +lua +curl cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3 lua_single_target_luajit lua_single_target_lua5-1
+IUSE=lto +lua +curl lua_single_target_luajit lua_single_target_lua5-1
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=GPL-3
 RDEPEND=lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) media-libs/libpng:0/16 media-libs/libsdl2 curl? ( net-misc/curl ) sci-libs/fftw app-arch/bzip2 dev-libs/jsoncpp
@@ -14,4 +14,4 @@ RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/The-Powder-Toy/The-Powder-Toy/archive/refs/tags/v99.5.394.tar.gz -> powdertoy-99.5.394.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	desktop	26d57169ca094c04be416993844ec8bc
-_md5_=ec6855d80b46b23a7d45bb603e9d1f80
+_md5_=c589b74236557fe790bc52b8b62cfd92
