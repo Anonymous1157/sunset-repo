@@ -13,7 +13,7 @@ SRC_URI="http://www.isthe.com/chongo/src/calc/${P}.tar.bz2"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha amd64 ~arm64 ~ppc ~ppc64 ~x86"
 
 RDEPEND="
 	sys-libs/ncurses:0=
