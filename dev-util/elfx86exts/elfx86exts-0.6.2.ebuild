@@ -81,7 +81,7 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="Decode x86 binaries and print out which instruction set extensions they use."
+DESCRIPTION="Decode x86 binaries and print out which instruction set extensions they use"
 HOMEPAGE="https://github.com/pkgw/elfx86exts"
 SRC_URI="
 	${CARGO_CRATE_URIS}
