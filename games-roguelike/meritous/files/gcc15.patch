@@ -1,0 +1,32 @@
+diff '--color=auto' -rU3 meritous-v1.5/src/levelblit.c meritous-v1.5-new/src/levelblit.c
+--- meritous-v1.5/src/levelblit.c	2019-02-26 16:12:14.000000000 -0500
++++ meritous-v1.5-new/src/levelblit.c	2026-06-20 15:25:45.922503900 -0400
+@@ -2575,7 +2575,7 @@
+ 			break;
+ 		case 42:
+ 			if (rooms[player_room].room_type == 5) {
+-				if (CanGetArtifact(rooms[player_room].room_param)) {
++				if (CanGetArtifact()) {
+ 					
+ 				} else {
+ 					sprintf(message, _("The artifact is tainted with shadow. You must slay more of the shadow first.") );
+diff '--color=auto' -rU3 meritous-v1.5/src/save.h meritous-v1.5-new/src/save.h
+--- meritous-v1.5/src/save.h	2019-02-26 16:12:14.000000000 -0500
++++ meritous-v1.5-new/src/save.h	2026-06-20 15:26:37.253280914 -0400
+@@ -24,7 +24,7 @@
+ #ifndef SAVE_H
+ #define SAVE_H
+ 
+-void DoSaveGame();
++void DoSaveGame(char *filename);
+ 
+ void FWInt(int val);
+ void FWChar(unsigned char i);
+@@ -39,6 +39,6 @@
+ void LoadGame(char *);
+ void CloseFile();
+ 
+-int IsSaveFile();
++int IsSaveFile(char *filename);
+ 
+ #endif
