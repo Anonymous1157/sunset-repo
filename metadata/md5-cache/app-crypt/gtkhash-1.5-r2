@@ -1,10 +1,10 @@
-BDEPEND=>=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
-DEFINED_PHASES=compile configure install test
+BDEPEND=kernel_linux? ( virtual/os-headers ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install setup test
 DEPEND=dev-libs/libgcrypt app-crypt/libb2 x11-libs/gtk+:3 virtual/zlib:= nettle? ( dev-libs/nettle ) openssl? ( dev-libs/openssl ) mbedtls? ( net-libs/mbedtls:0 ) caja? ( mate-base/caja ) nemo? ( gnome-extra/nemo ) thunar? ( xfce-base/thunar )
 DESCRIPTION=A cross-platform desktop utility for computing message digests or checksums
 EAPI=8
 HOMEPAGE=https://gtkhash.org/
-INHERIT=meson
+INHERIT=meson linux-info
 IUSE=nettle +openssl mbedtls caja nemo thunar
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/libgcrypt app-crypt/libb2 x11-libs/gtk+:3 virtual/zlib:= nettle
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/tristanheaven/gtkhash/archive/refs/tags/v1.5.tar.gz -> gtkhash-1.5.tar.gz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	18a01bee4e486884d7457cfacde74099	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f
-_md5_=5eb051c4a47c455eaadc5843f0dbe78d
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	18a01bee4e486884d7457cfacde74099	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	linux-info	efd923656513c879204fec6638eadee5
+_md5_=02855a63171ce0893d597da8c8d12267

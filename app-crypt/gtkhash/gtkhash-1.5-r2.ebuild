@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson
+inherit meson linux-info
 
 DESCRIPTION="A cross-platform desktop utility for computing message digests or checksums"
 HOMEPAGE="https://gtkhash.org/"
@@ -26,12 +26,21 @@ DEPEND="dev-libs/libgcrypt
 	nemo? ( gnome-extra/nemo )
 	thunar? ( xfce-base/thunar )"
 RDEPEND="${DEPEND}"
+BDEPEND="kernel_linux? ( virtual/os-headers )"
 
 RESTRICT="mirror"
 
 PATCHES=(
 	"${FILESDIR}/fix-msgfmt-keyword-use-space.patch"
 )
+
+CONFIG_CHECK="
+	~CRYPTO_USER
+	~CRYPTO_USER_API
+	~CRYPTO_USER_API_HASH"
+WARNING_CRYPTO_USER="CONFIG_CRYPTO_USER required for (optional) Linux kernel hashing."
+WARNING_CRYPTO_USER_API="CONFIG_CRYPTO_USER_API required for (optional) Linux kernel hashing."
+WARNING_CRYPTO_USER_API_HASH="CONFIG_CRYPTO_USER_API_HASH required for (optional) Linux kernel hashing."
 
 src_configure() {
 	local emesonargs=(
@@ -42,7 +51,7 @@ src_configure() {
 		-Dbuild-nautilus=false # Extension does not work with GTK4 Nautilus
 		$(meson_use nemo build-nemo)
 		$(meson_use thunar build-thunar)
-		-Dlinux-crypto=true # Probably should NOT assume we're running on Linux...
+		$(meson_use kernel_linux linux-crypto)
 		-Dglib-checksums=true # Indirect dependency of GTK3 so why not
 	)
 	meson_src_configure
