@@ -17,7 +17,7 @@ ESVN_REPO_URI="svn://servers.simutrans.org/simutrans/trunk@11919"
 
 LICENSE="Artistic"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+
 IUSE="+midi fontconfig upnp zstd doc tools"
 
 DEPEND="
@@ -41,18 +41,18 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-# TODO see if the note on the RESTRICT is still accurate
-RESTRICT="test" # Opens the program and doesn't close it.
+# Does not work without paksets present
+RESTRICT="test"
 
 src_configure() {
-	# TODO see if either of these are actually needed anymore (probably not)
+	# Last checked both of these workarounds still necessary 20260626
 	strip-flags # bug #293927
 	append-flags -fno-strict-aliasing # bug #859229
 
 	local mycmakeargs=(
 		-DSIMUTRANS_USE_REVISION="${ESVN_WC_REVISION}"
 		-DSIMUTRANS_BACKEND="sdl2"
-		-DSIMUTRANS_MULTI_THREAD=1
+		-DSIMUTRANS_MULTI_THREAD=true
 		-DSIMUTRANS_USE_FONTCONFIG=$(usex fontconfig)
 		-DSIMUTRANS_USE_UPNP=$(usex upnp)
 		-DSIMUTRANS_USE_ZSTD=$(usex zstd)
@@ -71,8 +71,8 @@ src_compile() {
 src_install() {
 	cmake_src_install
 	use tools && {
-		newbin "${BUILD_DIR}/src/nettool/nettool" simutrans-nettool
-		newbin "${BUILD_DIR}/src/makeobj/makeobj" simutrans-makeobj
+		newbin "${BUILD_DIR}/src/nettool/nettool" ${PN}-nettool
+		newbin "${BUILD_DIR}/src/makeobj/makeobj" ${PN}-makeobj
 	}
 	use doc && {
 		dodoc -r "${BUILD_DIR}/documentation/simutrans"
