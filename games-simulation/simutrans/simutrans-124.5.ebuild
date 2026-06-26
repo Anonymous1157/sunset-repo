@@ -39,6 +39,7 @@ RDEPEND="
 	!<games-simulation/simutrans-paksets-${PV}
 "
 BDEPEND="
+	app-arch/unzip
 	virtual/pkgconfig
 "
 
