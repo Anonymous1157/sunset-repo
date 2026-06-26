@@ -12,6 +12,6 @@ RDEPEND=lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_luajit lua_single_target_lua5-1 ) )
 RESTRICT=mirror
 SLOT=0
-SRC_URI=https://github.com/The-Powder-Toy/The-Powder-Toy/archive/refs/tags/v99.5.394.tar.gz -> powdertoy-99.5.394.tar.gz
+SRC_URI=https://github.com/The-Powder-Toy/The-Powder-Toy/archive/refs/tags/v100.0.399.tar.gz -> powdertoy-100.0.399.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	18a01bee4e486884d7457cfacde74099	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	desktop	e447b5f77146d69797e9f03ff177f3f1
 _md5_=c589b74236557fe790bc52b8b62cfd92
