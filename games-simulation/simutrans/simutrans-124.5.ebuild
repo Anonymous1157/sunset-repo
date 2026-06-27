@@ -5,7 +5,7 @@
 
 EAPI=8
 
-inherit cmake flag-o-matic xdg
+inherit cmake flag-o-matic xdg toolchain-funcs
 
 DESCRIPTION="A free Transport Tycoon clone"
 HOMEPAGE="https://www.simutrans.com/"
@@ -43,6 +43,10 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+# Prebuilt UI themes missing from zip release. We can build them ourselves but
+#  it requires the included tools to be executable by the build machine
+tc-is-cross-compiler && BDEPEND+="=${CATEGORY}/${PF}[tools]"
+
 # Does not work without paksets present
 RESTRICT="test"
 
@@ -67,7 +71,12 @@ src_prepare() {
 	touch "src/android/AndroidAppSettings.cfg.in"
 
 	# Script to build UI themes hardcodes location of makeobj
-	sed -e "s#^.*src/makeobj/makeobj#${BUILD_DIR}/src/makeobj/makeobj#g" -i "themes.src/build_themes.sh"
+	if tc-is-cross-compiler
+	then
+		sed -e "s#^.*src/makeobj/makeobj#${PN}-makeobj#g" -i "themes.src/build_themes.sh"
+	else
+		sed -e "s#^.*src/makeobj/makeobj#${BUILD_DIR}/src/makeobj/makeobj#g" -i "themes.src/build_themes.sh"
+	fi
 }
 
 src_configure() {
@@ -92,8 +101,10 @@ src_configure() {
 src_compile() {
 	cmake_src_compile
 
-	# Prebuilt UI themes missing from zip release
-	cmake_src_compile makeobj
+	if ! tc-is-cross-compiler || use tools
+	then
+		cmake_src_compile makeobj
+	fi
 	( cd "themes.src" && /bin/sh "build_themes.sh" )
 
 	use tools && cmake_src_compile nettool
@@ -114,7 +125,7 @@ pkg_postinst() {
 	elog "This ebuild makes no attempt to install any fallback pakset."
 	use tools && {
 		elog ""
-		elog "Tools have been installed as \"simutrans-*\" to avoid collisions as they have"
+		elog "Tools have been installed as \"${PN}-*\" to avoid collisions as they have"
 		elog "extremely generic names."
 	}
 }
