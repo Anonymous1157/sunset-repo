@@ -9,7 +9,7 @@ inherit cmake xdg
 
 MY_PN="OpenLoco"
 OG_PN="OpenGraphics"
-OG_PV="0.1.8"
+OG_PV="0.1.10"
 
 DESCRIPTION="An open source re-implementation of Chris Sawyer's Locomotion"
 HOMEPAGE="https://openloco.io/"
