@@ -1,7 +1,0 @@
-DEFINED_PHASES=-
-DESCRIPTION=Virtual for the pkg-config implementation
-EAPI=8
-IUSE=+native-symlinks
-RDEPEND=|| ( dev-util/pkgconf[native-symlinks(+)=] dev-util/u-config[symlink(-)=] )
-SLOT=0
-_md5_=baddd2d060f3f5e3f4bdfd65a6608304
